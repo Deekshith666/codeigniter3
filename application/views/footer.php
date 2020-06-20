@@ -63,4 +63,18 @@
     <!-- ChartJS-->
     <script src="<?php echo $this->config->item('admin_js_path');?>Chart.min.js"></script>
     <script src="<?php echo $this->config->item('admin_js_path');?>chartjs-demo.js"></script>
+    <script>
+$(document).on('keypress',function(e) {
+    if(e.which == 61 || e.which == 43) {
+		i = Math.random();
+        window.open('<?php echo site_url('window').'?i=';?>'+i,'pagename'+i,'resizable,height=500,width=700,top=20, left=20');
+    }
+});
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+		window.close();
+    }
+};
+</script>
 </body>

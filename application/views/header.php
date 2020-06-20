@@ -1,3 +1,7 @@
+<?php
+$CI =& get_instance();
+$CI->load->model('Header_model');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -22,7 +26,7 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
-                <li class="nav-header">
+            	<li class="nav-header">
                     <div class="dropdown profile-element">
                         <img alt="image" class="rounded-circle" src="<?php echo $this->config->item('img_path');?>profile_small.jpg">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -41,48 +45,31 @@
                         IN+
                     </div>
                 </li>
-                <li>
-                    <a href="index.html" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-                        <li><a href="index.html">Dashboard v.1</a></li>
-                        <li><a href="dashboard_2.html">Dashboard v.2</a></li>
-                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>
-                        <li class="active"><a href="dashboard_4_1.html">Dashboard v.4</a></li>
-                        <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
-                </li>
-                <li class="landing_link">
-                    <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning float-right">NEW</span></a>
-                </li>
-                <li class="">
-                    <a href="#" aria-expanded="false"><i class="fa fa-sitemap"></i> <span class="nav-label">Menu Levels </span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">
-                        <li class="active">
-                            <a href="#" aria-expanded="true">Third Level <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level collapse in" aria-expanded="true" style="">
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li><a href="#" aria-expanded="false">Second Level Item</a></li>
-                        <li>
-                            <a href="#" aria-expanded="false">Second Level Item</a></li>
-                        <li>
-                            <a href="#" aria-expanded="false">Second Level Item</a></li>
-                    </ul>
-                </li>
-                
+          
+			<?php foreach($menu as $row){
+				$submenusize=0;
+				$submenu = $CI->Header_model->get_submenu($row['MT_ID_PK']);
+				if(sizeof($submenu) > 0){$submenusize = 1;}
+				if($submenusize == 0)
+				{
+				?>
+				<li><a href="<?php echo site_url($row['MT_URL']);?>"><i class="fa fa-diamond"></i><span class="nav-label"><?php echo $row['MT_Name'];?></span></a></li>
+				<?php
+				}
+				else
+				{
+					?>
+					<li>
+						<a href="<?php echo site_url($row['MT_URL']);?>" aria-expanded="false"><i class="fa fa-th-large"></i> <span class="nav-label"><?php echo $row['MT_Name'];?></span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">                   
+							<?php foreach($submenu as $row1){?>
+							<li><a href="<?php echo $row1['MT_URL'];?>"><?php echo $row1['MT_Name'];?></a></li>
+							<?php } ?>
+						</ul>
+					</li>                
+					<?php                
+				}
+            }?> 
             </ul>
 
         </div>

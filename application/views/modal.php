@@ -1,23 +1,8 @@
-<?php 
-if($_GET['i'] == 1)
-{
-$_SESSION['top'] = 20;
-$_SESSION['left'] = 20;	
-}
-else
-{
-$_SESSION['top'] = $_SESSION['top'] + 20;
-$_SESSION['left'] = $_SESSION['left'] + 20;
-}
-
-?>
 <script>
-var i = "<?php echo $_GET['i'];?>";
-var top = "<?php echo $_SESSION['top'];?>";
 $(document).on('keypress',function(e) {
     if(e.which == 61 || e.which == 43) {
-		i = parseInt(i)+Math.random();
-        window.open('<?php echo 'http://localhost/codeigniter3/modal?i=';?>'+i,'pagename'+i,'resizable,height=500,width=700,top=<?php echo $_SESSION['top'];?>, left=<?php echo $_SESSION['left'];?>');
+		i = Math.random();
+        window.open('<?php echo site_url('window').'?i=';?>'+i,'pagename'+i,'resizable,height=500,width=700,top=20, left=20');
     }
 });
 document.onkeydown = function(evt) {
