@@ -1,0 +1,46 @@
+/* CSS Document */
+.search-bar{
+	width:600px !important;
+	font-weight:bold;
+}
+.searchuser{
+	font-weight:bold;
+	letter-spacing:1px;
+}
+.user-row{
+	padding:20px 0 10px 0 !important;
+	border-bottom:1px solid #e7eaec;
+	
+}
+.btn-balance{
+	background-color: #9b04f1;
+    border-color: #9b04f1;
+    color: #FFFFFF !important;
+}
+.patient-note{
+	line-height:20px;
+}
+.non-dispaly{
+	display:none !important;
+}
+.time-diff{
+	padding:2px 4px 2px 4px;
+}
+.confirm-div{
+	margin-top:10px !important;
+}
+.agl-bg{
+	background-color:#f565cf;
+	color:#ffffff;
+}
+.ico-fw{
+    width: 1.28571429em;
+    text-align: center;
+}
+.go-btn{
+	margin:4px 0 0 20px;
+}
+.img-result img{
+	width:128px;
+	height:128px;
+}
