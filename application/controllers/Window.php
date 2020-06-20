@@ -30,6 +30,6 @@ class window extends CI_Controller {
 		$details['menu'] = $this->header_model->get_menu();
 		$this->load->view('header_without_menu',$details);
 		$this->load->view('billing_window',$details);
-		$this->load->view('footer');
+		$this->load->view('footer_without_menu');
 	}
 }

@@ -33,9 +33,9 @@ document.onkeydown = function(evt) {
                 <div class="col-md-1" ><b>Rate</b></div>
                 <div class="col-md-1" ><b>Total</b></div>
                 <div class="col-md-1" ><b>Discount</b></div>
-                <div class="col-md-1" ><b>Tax %</b></div>
-                <div class="col-md-1" ><b>Tax Amt</b></div>
-                <div class="col-md-1" ><b>Net Amount</b></div>
+                <div class="col-md-1" ><b>Tax&nbsp;%</b></div>
+                <div class="col-md-1" ><b>Tax&nbsp;Amt</b></div>
+                <div class="col-md-2" ><b>Net&nbsp;Amount</b></div>
                 <div class="col-md-1" ><b>Action</b></div>
             </div>
         </div>
