@@ -18,7 +18,11 @@ $CI->load->model('Header_model');
     <link href="<?php echo $this->config->item('admin_css_path');?>plugins/toastr/toastr.min.css" rel="stylesheet">
 	<link href="<?php echo $this->config->item('admin_css_path');?>plugins/select2/select2.min.css" rel="stylesheet">
     <link href="<?php echo $this->config->item('admin_css_path');?>animate.css" rel="stylesheet">
-    
+    <style>
+	.modal-backdrop.in {
+	opacity: 0.25;
+	}
+	</style>
     <script src="<?php echo $this->config->item('admin_js_path');?>jquery-3.1.1.min.js"></script>
 </head>
 <body>
