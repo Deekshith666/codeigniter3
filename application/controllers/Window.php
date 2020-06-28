@@ -26,7 +26,6 @@ class window extends CI_Controller {
 	} 
 	public function index()
 	{
-		$details['items'] = $this->window_model->get_items();
 		$details['menu'] = $this->header_model->get_menu();
 		$this->load->view('header_without_menu',$details);
 		$this->load->view('billing_window',$details);

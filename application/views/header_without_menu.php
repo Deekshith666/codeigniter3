@@ -9,6 +9,7 @@
     <link href="<?php echo $this->config->item('admin_css_path');?>bootstrap.min.css" rel="stylesheet">    
     <link href="<?php echo $this->config->item('admin_css_path');?>style.css" rel="stylesheet">
     <link href="<?php echo $this->config->item('base_path');?>static/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo $this->config->item('base_path');?>static/css/jquery-ui.css" rel="stylesheet">
     <link href="<?php echo $this->config->item('admin_css_path');?>morris-0.4.3.min.css" rel="stylesheet">
     <link href="<?php echo $this->config->item('admin_css_path');?>plugins/dataTables/datatables.min.css" rel="stylesheet">
     <link href="<?php echo $this->config->item('admin_css_path');?>plugins/toastr/toastr.min.css" rel="stylesheet">
