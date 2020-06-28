@@ -10,14 +10,10 @@ $CI->load->model('Header_model');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Billings</title>
-    <link href="<?php echo $this->config->item('admin_css_path');?>bootstrap.min.css" rel="stylesheet">    
+    <link href="<?php echo $this->config->item('admin_css_path');?>bootstrap.min.css" rel="stylesheet"> 
+    <link href="<?php echo $this->config->item('admin_css_path');?>animate.css" rel="stylesheet">   
     <link href="<?php echo $this->config->item('admin_css_path');?>style.css" rel="stylesheet">
-    <link href="<?php echo $this->config->item('base_path');?>static/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="<?php echo $this->config->item('admin_css_path');?>morris-0.4.3.min.css" rel="stylesheet">
-    <link href="<?php echo $this->config->item('admin_css_path');?>plugins/dataTables/datatables.min.css" rel="stylesheet">
-    <link href="<?php echo $this->config->item('admin_css_path');?>plugins/toastr/toastr.min.css" rel="stylesheet">
-	<link href="<?php echo $this->config->item('admin_css_path');?>plugins/select2/select2.min.css" rel="stylesheet">
-    <link href="<?php echo $this->config->item('admin_css_path');?>animate.css" rel="stylesheet">
+    
     <style>
 	.modal-backdrop.in {
 	opacity: 0.25;
