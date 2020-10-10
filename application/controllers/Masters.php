@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Products extends CI_Controller {
+class masters extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,15 +19,10 @@ class Products extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function __construct()
-	{
-		parent::__construct();
-		$this->load->model('header_model');
-	}  
-	public function index()
-	{
-		$details['menu'] = $this->header_model->get_menu();
-		$this->load->view('header',$details);
-		$this->load->view('masters/products_nm');
-		$this->load->view('footer');
-	}
+		{
+			parent::__construct();
+			$this->load->model('master_model');
+			$this->load->model('header_model');
+		}  
+	
 }

@@ -13,7 +13,7 @@ class Category_model extends CI_Model {
 		$this->db->from('gen_category_lookup');
 		$this->db->where('CL_Active',10);
 		$sql = $this->db->get()->result_array();
-		//echo $this->db->last_query() ;
+		echo $this->db->last_query() ;
 		return $sql;
 	}
 	public function add_category($category_name)

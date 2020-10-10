@@ -10,27 +10,23 @@
 <script> 
 	function add_category() {
 	var category_name = document.getElementById('category_name').value;
-	//alert(category_name);
 	if(category_name=='')
 		{
 			alert('Please enter Category');
 			return false;
 		}
-$.ajax({
+	$.ajax({
     url    :'<?php echo site_url('Ajaxs/Masters_ajax/save_category');?>',
     type  :'POST',
     data  :{category_name:category_name},
     success:function(data){
 		document.getElementById('addcategory').style.display = 'none';
 		document.getElementById('msg').innerHTML = 'Category Saved';
-		document.getElementById('category_body').innerHTML = data;	
-		
-		
+		document.getElementById('category_body').innerHTML = data;
 		setTimeout(function() {
-
-			           		$('#myModal4').modal('hide');
-							}, 900);
-					}
-  					});
+	           		$('#myModal4').modal('hide');
+					}, 900);
+			}
+			});
 	}
 </script>

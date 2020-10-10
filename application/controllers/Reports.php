@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Category extends CI_Controller {
+class masters extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,15 +21,27 @@ class Category extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('header_model');
-		$this->load->model('Masters/Category_model');
+		$this->load->model('master_model');
 	}  
-	public function index()
+	public function products()
 	{
-		$details['menu'] = $this->header_model->get_menu();
-		$details['category'] = $this->Category_model->get_category();
+		$details['products'] = $this->master_model->get_products();
 		$this->load->view('header',$details);
-		$this->load->view('masters/category',$details);
+		$this->load->view('products');
+		$this->load->view('footer');
+	}
+	public function tax()
+	{
+		$details['tax'] = $this->master_model->get_tax();
+		$this->load->view('header',$details);
+		$this->load->view('tax');
+		$this->load->view('footer');
+	}
+	public function category()
+	{
+		$details['category'] = $this->master_model->get_category();
+		$this->load->view('header',$details);
+		$this->load->view('category');
 		$this->load->view('footer');
 	}
 }

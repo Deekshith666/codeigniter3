@@ -11,7 +11,9 @@ $CI->load->model('Header_model');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Billings</title>
     <link href="<?php echo $this->config->item('admin_css_path');?>bootstrap.min.css" rel="stylesheet"> 
-    <link href="<?php echo $this->config->item('admin_css_path');?>animate.css" rel="stylesheet">   
+    <link href="<?php echo $this->config->item('admin_css_path');?>datatables.min.css" rel="stylesheet">
+    <link href="<?php echo $this->config->item('admin_css_path');?>animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo $this->config->item('admin_css_path');?>font-awesome.min.css">    
     <link href="<?php echo $this->config->item('admin_css_path');?>style.css" rel="stylesheet">
     
     <style>

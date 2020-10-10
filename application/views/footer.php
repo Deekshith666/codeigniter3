@@ -1,5 +1,4 @@
 <?php 
-
 if($_SESSION['top'] > 200 || $_SESSION['top'] =='' || $_SESSION['top'] == NULL)
 {
 $_SESSION['top'] = 20;
@@ -63,4 +62,7 @@ function isNumber(e) {
             return ret;
 }
 </script>
+<script src="<?php echo $this->config->item('admin_js_path');?>datatables.min.js"></script>
+<script src="<?php echo $this->config->item('admin_js_path');?>dataTables.bootstrap4.min.js"></script>
+
 </body>

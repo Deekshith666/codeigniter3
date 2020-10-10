@@ -530,6 +530,7 @@ $config['img_path'] = 'http://localhost/git/codeigniter3/static/img/';
 $config['admin_css_path'] = 'http://localhost/git/codeigniter3/static/admin/css/';
 $config['admin_js_path'] = 'http://localhost/git/codeigniter3/static/admin/js/';
 $config['admin_img_path'] = 'http://localhost/git/codeigniter3/static/admin/img/';
+$config['admin_img_icon'] = 'http://localhost/git/codeigniter3/static/admin/icon/';
 
 $config['base_path'] = 'http://localhost/git/codeigniter3/';
 

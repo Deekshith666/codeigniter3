@@ -1344,3 +1344,88 @@ $('.demo3').click(function () {
 
 <!--forth page end-->
         </div>
+<!--datatable starts here-->        
+        <div class='wrapper wrapper-content animated fadeInRight'>
+            <div class='row'>
+                <div class='col-lg-12'>
+                <div class='ibox '>
+                    <div class='ibox-title'>
+                        <h5>Basic Data Tables example with responsive plugin</h5>
+                        <div class='ibox-tools'>
+                            <a class='collapse-link'>
+                                <i class='fa fa-chevron-up'></i>
+                            </a>
+                            <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                                <i class='fa fa-wrench'></i>
+                            </a>
+                            <ul class='dropdown-menu dropdown-user'>
+                                <li><a href='#' class='dropdown-item'>Config option 1</a>
+                                </li>
+                                <li><a href='#' class='dropdown-item'>Config option 2</a>
+                                </li>
+                            </ul>
+                            <a class='close-link'>
+                                <i class='fa fa-times'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class='ibox-content'>
+
+                        <div class='table-responsive'>
+                    
+                    <table class='table table-striped table-bordered table-hover dataTables-example dataTable' id='DataTables_Table_0' aria-describedby='DataTables_Table_0_info' role='grid'>
+                    <thead>
+                    <tr role='row'><th class='sorting_asc' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-sort='ascending' aria-label='Rendering engine: activate to sort column descending' style='width: 201px;'>Rendering engine</th><th class='sorting' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-label='Browser: activate to sort column ascending' style='width: 250.6px;'>Browser</th><th class='sorting' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-label='Platform(s): activate to sort column ascending' style='width: 225px;'>Platform(s)</th><th class='sorting' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-label='Engine version: activate to sort column ascending' style='width: 172.2px;'>Engine version</th><th class='sorting' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-label='CSS grade: activate to sort column ascending' style='width: 122.8px;'>CSS grade</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr class='gradeA odd' role='row'>
+                        <td class='sorting_1'>Gecko</td>
+                        <td>Firefox 1.0</td>
+                        <td>Win 98+ / OSX.2+</td>
+                        <td class='center'>1.7</td>
+                        <td class='center'>A</td>
+                    </tr><tr class='gradeA even' role='row'>
+                        <td class='sorting_1'>Gecko</td>
+                        <td>Firefox 1.5</td>
+                        <td>Win 98+ / OSX.2+</td>
+                        <td class='center'>1.8</td>
+                        <td class='center'>A</td>
+                    </tr>
+                </tbody>
+                    <tfoot>
+                    <tr><th rowspan='1' colspan='1'>Rendering engine</th><th rowspan='1' colspan='1'>Browser</th><th rowspan='1' colspan='1'>Platform(s)</th><th rowspan='1' colspan='1'>Engine version</th><th rowspan='1' colspan='1'>CSS grade</th></tr>
+                    </tfoot>
+                    </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        $(document).ready(function(){
+            $('.dataTables-example').DataTable({
+                pageLength: 10,
+                responsive: true,
+                dom: '<\'html5buttons\'B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+        });
+        </script>
+<!--datatable ends here-->        
