@@ -24,5 +24,20 @@ class masters extends CI_Controller {
 			$this->load->model('master_model');
 			$this->load->model('header_model');
 		}  
-	
+	public function Tax_Group()
+		{ 			
+			$details1["menu"] = $this->header_model->get_menu();	
+			$details["Tax_Group"] = $this->master_model->get_Tax_Group(0);
+			$this->load->view("header",$details1);
+			$this->load->view("Tax_Group",$details);
+			$this->load->view("footer"); 
+		}
+	public function Bill_category()
+		{ 			
+			$details1["menu"] = $this->header_model->get_menu();	
+			$details["Bill_category"] = $this->master_model->get_Bill_category(0);
+			$this->load->view("header",$details1);
+			$this->load->view("Bill_category",$details);
+			$this->load->view("footer"); 
+		} 	
 }
