@@ -89,4 +89,12 @@ class masters extends CI_Controller {
 			$this->load->view("Units",$details);
 			$this->load->view("footer"); 
 		} 
+	public function Tax()
+		{ 			
+			$details1["menu"] = $this->header_model->get_menu();	
+			$details["Tax"] = $this->master_model->get_Tax(0);
+			$this->load->view("header",$details1);
+			$this->load->view("Tax",$details);
+			$this->load->view("footer"); 
+		} 
 }

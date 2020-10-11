@@ -362,6 +362,48 @@ public function get_Item_category($id="0")
 					$this->db->where("gul_id_pk", $id);
 					$this->db->delete("gen_units_lookup");
 				}
+public function get_Tax($id="0")
+				{
+					$this->db->select("*");
+					$this->db->from("gen_tax_lookup");
+					$this->db->where("gtl_active", 10);
+					if($id > 0)
+					{
+						$this->db->where("gtl_id_pk", $id);
+					}
+					$query = $this->db->get();
+					return $query->result_array($query);
+				}
+				public function insert_Tax($id,$gtl_name,$gtl_tax_percentage)
+				{
+					if($id > 0)
+					{
+						$data = array('gtl_name' => $gtl_name
+	,'gtl_tax_percentage' => $gtl_tax_percentage
+	,'gtl_active' => 10
+	,'gtl_added_by' => 0
+	,'gtl_added_on' => date('Y-m-d h:i:s')
+	);
+						$this->db->where("gtl_id_pk", $id);
+						$this->db->update("gen_tax_lookup", $data);
+					}
+					else
+					{
+					$data = array('gtl_name' => $gtl_name
+	,'gtl_tax_percentage' => $gtl_tax_percentage
+	,'gtl_active' => 10
+	,'gtl_added_by' => 0
+	,'gtl_added_on' => date('Y-m-d h:i:s')
+	);
+					$this->db->insert("gen_tax_lookup", $data);
+					}
+					//echo $this->db->last_query() ;
+				}
+				public function delete_Tax($id)
+				{
+					$this->db->where("gtl_id_pk", $id);
+					$this->db->delete("gen_tax_lookup");
+				}
 }
 
 /* End of file Affiliate_model.php */

@@ -300,7 +300,37 @@ public function new_Rack($id=0)
 					$this->master_model->delete_Units($id);
 					$details["Units"] = $this->master_model->get_Units(0);
 					$this->load->view("ajax/Units_body",$details);
-					}			
+					}	
+
+public function new_Tax($id=0)
+					{
+					$details["id"] = $id;	
+					$details["Tax"] = $this->master_model->get_Tax($id);	
+					$this->load->view("ajax/new_Tax",$details); 
+					}
+					public function save_Tax()
+					{
+						$gtl_id_pk = $_POST["gtl_id_pk"];
+						$gtl_name = $_POST["gtl_name"];
+						$gtl_tax_percentage = $_POST["gtl_tax_percentage"];
+					$this->master_model->insert_Tax($gtl_id_pk,$gtl_name,$gtl_tax_percentage);
+					$details["Tax"] = $this->master_model->get_Tax(0);
+					$this->load->view("ajax/Tax_body",$details);
+					}
+					public function edit_Tax()
+					{
+					$id=$_GET["id"];
+					$details["id"] = $id;
+					$details["Tax"] = $this->master_model->get_Tax($id);	
+					$this->load->view("ajax/new_Tax",$details); 	
+					}
+					public function delete_Tax()
+					{
+					$id=$_GET["id"];
+					$this->master_model->delete_Tax($id);
+					$details["Tax"] = $this->master_model->get_Tax(0);
+					$this->load->view("ajax/Tax_body",$details);
+					}		
 
 }
 ?>
