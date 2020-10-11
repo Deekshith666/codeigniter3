@@ -54,7 +54,7 @@ var specialKeys = new Array();
         specialKeys1.push(35); //End
         specialKeys1.push(37); //Left
         specialKeys1.push(39); //Right
-function isNumber(e) {
+function IsNumeric(e) {
    if(e.keyCode == 9){return true;}
             var keyCode = e.keyCode == 0 ? e.charCode : e.keyCode;
             var ret = ((keyCode >= 48 && keyCode <= 57) || (specialKeys1.indexOf(e.keyCode) != -1 ) );// 

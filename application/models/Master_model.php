@@ -95,6 +95,14 @@ class Master_model extends CI_Model {
 					if($id > 0)
 					{
 						$this->db->where("gil_id_pk", $id);
+	public function get_Purchase($id="0")
+				{
+					$this->db->select("*");
+					$this->db->from("item_purchase_details");
+					$this->db->where("ipd_active", 10);
+					if($id > 0)
+					{
+						$this->db->where("ipd_id_pk", $id);
 					}
 					$query = $this->db->get();
 					return $query->result_array($query);
@@ -279,6 +287,74 @@ public function get_Item_category($id="0")
 					$this->db->where("gicl_id_pk", $id);
 					$this->db->delete("gen_item_category_lookup");
 				}
+				public function insert_Purchase($id,$ipd_Item_fk,$ipd_Manufacturer_fk,$ipd_HSN,$ipd_Batch,$ipd_Expiry,$ipd_Packing,$ipd_No_of_unit,$ipd_Total_Quantity,$ipd_Free,$ipd_Rate,$ipd_Total_item_value,$ipd_Cost_per_Quantity,$ipd_Packing_Mrp,$ipd_Mrp_per_Quantity,$ipd_Discount,$ipd_Discount_Type,$ipd_Total_Item_value,$ipd_Amount_Include_Gst,$ipd_Tax_fk,$ipd_Margin_Percentage,$ipd_Tax_on_free)
+				{
+					if($id > 0)
+					{
+						$data = array('ipd_Item_fk' => $ipd_Item_fk
+	,'ipd_Manufacturer_fk' => $ipd_Manufacturer_fk
+	,'ipd_HSN' => $ipd_HSN
+	,'ipd_Batch' => $ipd_Batch
+	,'ipd_Expiry' => $ipd_Expiry
+	,'ipd_Packing' => $ipd_Packing
+	,'ipd_No_of_unit' => $ipd_No_of_unit
+	,'ipd_Total_Quantity' => $ipd_Total_Quantity
+	,'ipd_Free' => $ipd_Free
+	,'ipd_Rate' => $ipd_Rate
+	,'ipd_Total_item_value' => $ipd_Total_item_value
+	,'ipd_Cost_per_Quantity' => $ipd_Cost_per_Quantity
+	,'ipd_Packing_Mrp' => $ipd_Packing_Mrp
+	,'ipd_Mrp_per_Quantity' => $ipd_Mrp_per_Quantity
+	,'ipd_Discount' => $ipd_Discount
+	,'ipd_Discount_Type' => $ipd_Discount_Type
+	,'ipd_Total_Item_value' => $ipd_Total_Item_value
+	,'ipd_Amount_Include_Gst' => $ipd_Amount_Include_Gst
+	,'ipd_Tax_fk' => $ipd_Tax_fk
+	,'ipd_Margin_Percentage' => $ipd_Margin_Percentage
+	,'ipd_Tax_on_free' => $ipd_Tax_on_free
+	,',ipd_active' => 10
+	,'ipd_added_by' => 0
+	,'ipd_added_on' => date('Y-m-d h:i:s')
+	);
+						$this->db->where("ipd_id_pk", $id);
+						$this->db->update("item_purchase_details", $data);
+					}
+					else
+					{
+					$data = array('ipd_Item_fk' => $ipd_Item_fk
+	,'ipd_Manufacturer_fk' => $ipd_Manufacturer_fk
+	,'ipd_HSN' => $ipd_HSN
+	,'ipd_Batch' => $ipd_Batch
+	,'ipd_Expiry' => $ipd_Expiry
+	,'ipd_Packing' => $ipd_Packing
+	,'ipd_No_of_unit' => $ipd_No_of_unit
+	,'ipd_Total_Quantity' => $ipd_Total_Quantity
+	,'ipd_Free' => $ipd_Free
+	,'ipd_Rate' => $ipd_Rate
+	,'ipd_Total_item_value' => $ipd_Total_item_value
+	,'ipd_Cost_per_Quantity' => $ipd_Cost_per_Quantity
+	,'ipd_Packing_Mrp' => $ipd_Packing_Mrp
+	,'ipd_Mrp_per_Quantity' => $ipd_Mrp_per_Quantity
+	,'ipd_Discount' => $ipd_Discount
+	,'ipd_Discount_Type' => $ipd_Discount_Type
+	,'ipd_Total_Item_value' => $ipd_Total_Item_value
+	,'ipd_Amount_Include_Gst' => $ipd_Amount_Include_Gst
+	,'ipd_Tax_fk' => $ipd_Tax_fk
+	,'ipd_Margin_Percentage' => $ipd_Margin_Percentage
+	,'ipd_Tax_on_free' => $ipd_Tax_on_free
+	,',ipd_active' => 10
+	,'ipd_added_by' => 0
+	,'ipd_added_on' => date('Y-m-d h:i:s')
+	);
+					$this->db->insert("item_purchase_details", $data);
+					}
+					//echo $this->db->last_query() ;
+				}
+				public function delete_Purchase($id)
+				{
+					$this->db->where("ipd_id_pk", $id);
+					$this->db->delete("item_purchase_details");
+				}		
 }
 
 /* End of file Affiliate_model.php */
