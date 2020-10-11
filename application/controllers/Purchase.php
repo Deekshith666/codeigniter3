@@ -13,8 +13,8 @@ class purchase extends CI_Controller {
 		{ 			
 			$details1["menu"] 		= $this->header_model->get_menu();	
 			$details["Purchase"] 	= $this->master_model->get_Purchase(0);
-			//$details["Supplier"] 	= $this->master_model->get_Supplier(0);
-			//$details["Manufacturer"]= $this->master_model->get_Manufacturer(0);
+			$details["Supplier"] 	= $this->master_model->get_Suppliers(0);
+			$details["Manufacturer"]= $this->master_model->get_Manufacturer(0);
 			$details["Tax_group"] 	= $this->master_model->get_Tax_group(0);
 			$this->load->view("header",$details1);
 			$this->load->view("Purchase",$details);

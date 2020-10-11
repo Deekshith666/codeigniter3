@@ -15,7 +15,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-addon">Supplier</span>
                                 </div>
-                                <input type="text" placeholder="Type here" class="form-control">
+                                <input type="text" value="" placeholder="Type here" class="Supplier_fk form-control">
+                                <input type="hidden" name="Supplier_fk" id="Supplier_fk">
                         </div>
                     </div>
                     <div class='col-md-3'>
@@ -41,8 +42,8 @@
                                 </div>
                                 <div class="input-group-append">
                                 <select>
-                                    <option>Yes</option>
                                     <option>No</option>
+                                    <option>Yes</option>
                                 </select>
                             </div>
                         </div>
@@ -154,10 +155,33 @@
 
                     </div>
                 </div>
+                <div class='ibox-title' align="right">
+                        <div title='Click to add new category'>
+                            <a href='javascript:void(0)' onclick='save_Purchase()' class='btn btn-w-m btn-primary' data-toggle='modal'> Save</a>
+                        </div>
+                    </div>
             </div>
         </div>
         <script>
+        <?php 
+        $Supplier_array = '';
+        if($Supplier)
+        {
+            foreach ($Supplier as $row) {
+                $Supplier_array = $Supplier_array.'{"name":"'.$row['gsl_name'].'","id":"'.$row['gsl_id_pk'].'"},';
+            }
+        }
+        ?>    
         $(document).ready(function(){
+            
+            $('.Supplier_fk').typeahead({
+                source: [eval(<?php echo $Supplier_array;?>)],
+                updater: function(selection){
+                    setInterval(function(){$('.Supplier_fk').val(selection.name); }, 100);
+                    $('#Supplier_fk').val(selection.id);
+                }
+            });
+            
             $('.dataTables-example').DataTable({
                 pageLength: 10,
                 responsive: true,

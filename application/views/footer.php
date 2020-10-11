@@ -64,5 +64,6 @@ function IsNumeric(e) {
 </script>
 <script src="<?php echo $this->config->item('admin_js_path');?>datatables.min.js"></script>
 <script src="<?php echo $this->config->item('admin_js_path');?>dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo $this->config->item('admin_js_path');?>bootstrap3-typeahead.min.js"></script>
 
 </body>
