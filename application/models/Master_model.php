@@ -316,7 +316,7 @@ public function get_Item_category($id="0")
 	,'ipd_Tax_fk' => $ipd_Tax_fk
 	,'ipd_Margin_Percentage' => $ipd_Margin_Percentage
 	,'ipd_Tax_on_free' => $ipd_Tax_on_free
-	,',ipd_active' => 10
+	,'ipd_active' => 10
 	,'ipd_added_by' => 0
 	,'ipd_added_on' => date('Y-m-d h:i:s')
 	);
@@ -346,7 +346,7 @@ public function get_Item_category($id="0")
 	,'ipd_Tax_fk' => $ipd_Tax_fk
 	,'ipd_Margin_Percentage' => $ipd_Margin_Percentage
 	,'ipd_Tax_on_free' => $ipd_Tax_on_free
-	,',ipd_active' => 10
+	,'ipd_active' => 10
 	,'ipd_added_by' => 0
 	,'ipd_added_on' => date('Y-m-d h:i:s')
 	);
