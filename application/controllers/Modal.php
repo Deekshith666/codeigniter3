@@ -30,4 +30,5 @@ class Modal extends CI_Controller {
 		$this->load->view('modal');
 		$this->load->view('modal_footer');
 	}
+	
 }

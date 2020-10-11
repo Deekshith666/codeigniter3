@@ -40,4 +40,37 @@ class masters extends CI_Controller {
 			$this->load->view("Bill_category",$details);
 			$this->load->view("footer"); 
 		} 	
+	public function Items()
+		{ 			
+			$details1["menu"] = $this->header_model->get_menu();	
+			$details["Items"] = $this->master_model->get_Items(0);
+			$this->load->view("header",$details1);
+			$this->load->view("Items",$details);
+			$this->load->view("footer"); 
+		} 
+
+	public function Suppliers()
+		{ 			
+			$details1["menu"] = $this->header_model->get_menu();	
+			$details["Suppliers"] = $this->master_model->get_Suppliers(0);
+			$this->load->view("header",$details1);
+			$this->load->view("Suppliers",$details);
+			$this->load->view("footer"); 
+		} 
+	public function Manufacturer()
+		{ 			
+			$details1["menu"] = $this->header_model->get_menu();	
+			$details["Manufacturer"] = $this->master_model->get_Manufacturer(0);
+			$this->load->view("header",$details1);
+			$this->load->view("Manufacturer",$details);
+			$this->load->view("footer"); 
+		} 
+	public function Item_category()
+		{ 			
+			$details1["menu"] = $this->header_model->get_menu();	
+			$details["Item_category"] = $this->master_model->get_Item_category(0);
+			$this->load->view("header",$details1);
+			$this->load->view("Item_category",$details);
+			$this->load->view("footer"); 
+		} 
 }

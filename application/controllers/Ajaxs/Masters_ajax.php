@@ -65,5 +65,133 @@ class Masters_ajax extends CI_Controller {
 					$details["Bill_category"] = $this->master_model->get_Bill_category(0);
 					$this->load->view("ajax/Bill_category_body",$details);
 					}
+					public function new_Items($id=0)
+					{
+					$details["id"] = $id;	
+					$details["Items"] = $this->master_model->get_Items($id);	
+					$this->load->view("ajax/new_Items",$details); 
+					}
+					public function save_Items()
+					{
+						$gil_id_pk = $_POST["gil_id_pk"];
+						$gil_name = $_POST["gil_name"];
+						$gil_code = $_POST["gil_code"];
+						$gil_item_category_FK = $_POST["gil_item_category_FK"];
+						$gil_reorder_quantity = $_POST["gil_reorder_quantity"];
+						$gil_unit_FK = $_POST["gil_unit_FK"];
+						$gil_manufacturer_FK = $_POST["gil_manufacturer_FK"];
+						$gil_supplier_FK = $_POST["gil_supplier_FK"];
+						$gil_tax_group_FK = $_POST["gil_tax_group_FK"];
+						$gil_cess = $_POST["gil_cess"];
+						$gil_barcode = $_POST["gil_barcode"];
+						$gil_price = $_POST["gil_price"];
+						$gil_bill_category_FK = $_POST["gil_bill_category_FK"];
+						$gil_rack_FK = $_POST["gil_rack_FK"];
+					$this->master_model->insert_Items($gil_id_pk,$gil_name,$gil_code,$gil_item_category_FK,$gil_reorder_quantity,$gil_unit_FK,$gil_manufacturer_FK,$gil_supplier_FK,$gil_tax_group_FK,$gil_cess,$gil_barcode,$gil_price,$gil_bill_category_FK,$gil_rack_FK);
+					$details["Items"] = $this->master_model->get_Items(0);
+					$this->load->view("ajax/Items_body",$details);
+					}
+					public function edit_Items()
+					{
+					$id=$_GET["id"];
+					$details["id"] = $id;
+					$details["Items"] = $this->master_model->get_Items($id);	
+					$this->load->view("ajax/new_Items",$details); 	
+					}
+					public function delete_Items()
+					{
+					$id=$_GET["id"];
+					$this->master_model->delete_Items($id);
+					$details["Items"] = $this->master_model->get_Items(0);
+					$this->load->view("ajax/Items_body",$details);
+					}
+public function new_Suppliers($id=0)
+					{
+					$details["id"] = $id;	
+					$details["Suppliers"] = $this->master_model->get_Suppliers($id);	
+					$this->load->view("ajax/new_Suppliers",$details); 
+					}
+					public function save_Suppliers()
+					{
+						$gsl_id_pk = $_POST["gsl_id_pk"];
+						$gsl_name = $_POST["gsl_name"];
+						$gsl_gstin = $_POST["gsl_gstin"];
+						$gsl_contact_number = $_POST["gsl_contact_number"];
+						$gsl_address = $_POST["gsl_address"];
+					$this->master_model->insert_Suppliers($gsl_id_pk,$gsl_name,$gsl_gstin,$gsl_contact_number,$gsl_address);
+					$details["Suppliers"] = $this->master_model->get_Suppliers(0);
+					$this->load->view("ajax/Suppliers_body",$details);
+					}
+					public function edit_Suppliers()
+					{
+					$id=$_GET["id"];
+					$details["id"] = $id;
+					$details["Suppliers"] = $this->master_model->get_Suppliers($id);	
+					$this->load->view("ajax/new_Suppliers",$details); 	
+					}
+					public function delete_Suppliers()
+					{
+					$id=$_GET["id"];
+					$this->master_model->delete_Suppliers($id);
+					$details["Suppliers"] = $this->master_model->get_Suppliers(0);
+					$this->load->view("ajax/Suppliers_body",$details);
+					}
+public function new_Manufacturer($id=0)
+					{
+					$details["id"] = $id;	
+					$details["Manufacturer"] = $this->master_model->get_Manufacturer($id);	
+					$this->load->view("ajax/new_Manufacturer",$details); 
+					}
+					public function save_Manufacturer()
+					{
+						$gml_id_pk = $_POST["gml_id_pk"];
+						$gml_name = $_POST["gml_name"];
+						$gml_hsn = $_POST["gml_hsn"];
+					$this->master_model->insert_Manufacturer($gml_id_pk,$gml_name,$gml_hsn);
+					$details["Manufacturer"] = $this->master_model->get_Manufacturer(0);
+					$this->load->view("ajax/Manufacturer_body",$details);
+					}
+					public function edit_Manufacturer()
+					{
+					$id=$_GET["id"];
+					$details["id"] = $id;
+					$details["Manufacturer"] = $this->master_model->get_Manufacturer($id);	
+					$this->load->view("ajax/new_Manufacturer",$details); 	
+					}
+					public function delete_Manufacturer()
+					{
+					$id=$_GET["id"];
+					$this->master_model->delete_Manufacturer($id);
+					$details["Manufacturer"] = $this->master_model->get_Manufacturer(0);
+					$this->load->view("ajax/Manufacturer_body",$details);
+					}
+public function new_Item_category($id=0)
+					{
+					$details["id"] = $id;	
+					$details["Item_category"] = $this->master_model->get_Item_category($id);	
+					$this->load->view("ajax/new_Item_category",$details); 
+					}
+					public function save_Item_category()
+					{
+						$gicl_id_pk = $_POST["gicl_id_pk"];
+						$gicl_name = $_POST["gicl_name"];
+					$this->master_model->insert_Item_category($gicl_id_pk,$gicl_name);
+					$details["Item_category"] = $this->master_model->get_Item_category(0);
+					$this->load->view("ajax/Item_category_body",$details);
+					}
+					public function edit_Item_category()
+					{
+					$id=$_GET["id"];
+					$details["id"] = $id;
+					$details["Item_category"] = $this->master_model->get_Item_category($id);	
+					$this->load->view("ajax/new_Item_category",$details); 	
+					}
+					public function delete_Item_category()
+					{
+					$id=$_GET["id"];
+					$this->master_model->delete_Item_category($id);
+					$details["Item_category"] = $this->master_model->get_Item_category(0);
+					$this->load->view("ajax/Item_category_body",$details);
+					}
 }
 ?>
