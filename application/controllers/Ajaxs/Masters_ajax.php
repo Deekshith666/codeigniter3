@@ -68,7 +68,14 @@ class Masters_ajax extends CI_Controller {
 
 					public function new_Items($id=0)
 					{
-					$details["id"] = $id;	
+					$details["id"] = $id;
+					$details["Manufacturer"] = $this->master_model->get_Manufacturer(0);
+					$details["Item_category"] = $this->master_model->get_Item_category(0);
+					$details["Units"] = $this->master_model->get_Units(0);
+					$details["Suppliers"] = $this->master_model->get_Suppliers(0);	
+					$details["Tax_Group"] = $this->master_model->get_Tax_Group(0);
+					$details["Bill_category"] = $this->master_model->get_Bill_category(0);
+					$details["Rack"] = $this->master_model->get_Rack(0);
 					$details["Items"] = $this->master_model->get_Items($id);	
 					$this->load->view("ajax/new_Items",$details); 
 					}

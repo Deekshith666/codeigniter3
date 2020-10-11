@@ -35,7 +35,13 @@
 						<label>Barcode</label>
 						<input  type='text' name='gil_barcode' id='gil_barcode' class='form-control' value='<?php echo $gil_barcode;?>' palceholder='Barcode'>
 						<label>Price</label>
-						<input  type='text' name='gil_price' id='gil_price' class='form-control' value='<?php echo $gil_price;?>' palceholder='Price'>
+						<div class="input-group m-b">
+	                    <div class="input-group-prepend">
+	                        <span class="input-group-addon">₹</span>
+	                    </div>
+	                    <input  type='text' name='gil_price' id='gil_price' class='form-control' value='<?php echo $gil_price;?>' palceholder='Price'>
+	                	</div>
+						
 						<label>Bill Category</label>
 						<input  type='text' name='gil_bill_category_FK' id='gil_bill_category_FK' class='form-control' value='<?php echo $gil_bill_category_FK;?>' palceholder='Bill_category_FK'>
 						<label>Rack</label>
