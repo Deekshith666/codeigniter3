@@ -175,7 +175,7 @@
         $(document).ready(function(){
             
             $('.Supplier_fk').typeahead({
-                source: [eval(<?php echo $Supplier_array;?>)],
+                source: [<?php echo $Supplier_array;?>],
                 updater: function(selection){
                     setInterval(function(){$('.Supplier_fk').val(selection.name); }, 100);
                     $('#Supplier_fk').val(selection.id);
