@@ -242,7 +242,65 @@ public function new_Item_category($id=0)
 					$this->master_model->delete_Purchase($id);
 					$details["Purchase"] = $this->master_model->get_Purchase(0);
 					$this->load->view("ajax/Purchase_body",$details);
-					}				
+					}	
+public function new_Rack($id=0)
+					{
+					$details["id"] = $id;	
+					$details["Rack"] = $this->master_model->get_Rack($id);	
+					$this->load->view("ajax/new_Rack",$details); 
+					}
+					public function save_Rack()
+					{
+						$grl_id_pk = $_POST["grl_id_pk"];
+						$grl_name = $_POST["grl_name"];
+						$grl_shelf = $_POST["grl_shelf"];
+					$this->master_model->insert_Rack($grl_id_pk,$grl_name,$grl_shelf);
+					$details["Rack"] = $this->master_model->get_Rack(0);
+					$this->load->view("ajax/Rack_body",$details);
+					}
+					public function edit_Rack()
+					{
+					$id=$_GET["id"];
+					$details["id"] = $id;
+					$details["Rack"] = $this->master_model->get_Rack($id);	
+					$this->load->view("ajax/new_Rack",$details); 	
+					}
+					public function delete_Rack()
+					{
+					$id=$_GET["id"];
+					$this->master_model->delete_Rack($id);
+					$details["Rack"] = $this->master_model->get_Rack(0);
+					$this->load->view("ajax/Rack_body",$details);
+					}
+
+	public function new_Units($id=0)
+					{
+					$details["id"] = $id;	
+					$details["Units"] = $this->master_model->get_Units($id);	
+					$this->load->view("ajax/new_Units",$details); 
+					}
+					public function save_Units()
+					{
+						$gul_id_pk = $_POST["gul_id_pk"];
+						$gul_name = $_POST["gul_name"];
+					$this->master_model->insert_Units($gul_id_pk,$gul_name);
+					$details["Units"] = $this->master_model->get_Units(0);
+					$this->load->view("ajax/Units_body",$details);
+					}
+					public function edit_Units()
+					{
+					$id=$_GET["id"];
+					$details["id"] = $id;
+					$details["Units"] = $this->master_model->get_Units($id);	
+					$this->load->view("ajax/new_Units",$details); 	
+					}
+					public function delete_Units()
+					{
+					$id=$_GET["id"];
+					$this->master_model->delete_Units($id);
+					$details["Units"] = $this->master_model->get_Units(0);
+					$this->load->view("ajax/Units_body",$details);
+					}			
 
 }
 ?>

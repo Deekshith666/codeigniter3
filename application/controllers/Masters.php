@@ -72,5 +72,21 @@ class masters extends CI_Controller {
 			$this->load->view("header",$details1);
 			$this->load->view("Item_category",$details);
 			$this->load->view("footer"); 
+		}
+	public function Rack()
+		{ 			
+			$details1["menu"] = $this->header_model->get_menu();	
+			$details["Rack"] = $this->master_model->get_Rack(0);
+			$this->load->view("header",$details1);
+			$this->load->view("Rack",$details);
+			$this->load->view("footer"); 
+		}  
+	public function Units()
+		{ 			
+			$details1["menu"] = $this->header_model->get_menu();	
+			$details["Units"] = $this->master_model->get_Units(0);
+			$this->load->view("header",$details1);
+			$this->load->view("Units",$details);
+			$this->load->view("footer"); 
 		} 
 }

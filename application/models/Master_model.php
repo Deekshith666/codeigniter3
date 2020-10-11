@@ -99,18 +99,6 @@ class Master_model extends CI_Model {
 					$query = $this->db->get();
 					return $query->result_array($query);
 				}
-				public function get_Purchase($id=0)
-				{
-					$this->db->select("*");
-					$this->db->from("item_purchase_details");
-					$this->db->where("ipd_active", 10);
-					if($id > 0)
-					{
-						$this->db->where("ipd_id_pk", $id);
-					}
-					$query = $this->db->get();
-					return $query->result_array($query);
-				}
 				public function insert_Items($id,$gil_name,$gil_code,$gil_item_category_FK,$gil_reorder_quantity,$gil_unit_FK,$gil_manufacturer_FK,$gil_supplier_FK,$gil_tax_group_FK,$gil_cess,$gil_barcode,$gil_price,$gil_bill_category_FK,$gil_rack_FK)
 				{
 					if($id > 0)
@@ -183,7 +171,7 @@ class Master_model extends CI_Model {
 	,'gsl_gstin' => $gsl_gstin
 	,'gsl_contact_number' => $gsl_contact_number
 	,'gsl_address' => $gsl_address
-	,'gsl_active' => 10
+	,'gsl_,active' => 10
 	,'gsl_added_by' => 0
 	,'gsl_added_on' => date('Y-m-d h:i:s')
 	);
@@ -196,7 +184,7 @@ class Master_model extends CI_Model {
 	,'gsl_gstin' => $gsl_gstin
 	,'gsl_contact_number' => $gsl_contact_number
 	,'gsl_address' => $gsl_address
-	,'gsl_active' => 10
+	,'gsl_,active' => 10
 	,'gsl_added_by' => 0
 	,'gsl_added_on' => date('Y-m-d h:i:s')
 	);
@@ -221,6 +209,7 @@ public function get_Manufacturer($id="0")
 					$query = $this->db->get();
 					return $query->result_array($query);
 				}
+			
 				public function insert_Manufacturer($id,$gml_name,$gml_hsn)
 				{
 					if($id > 0)
@@ -291,74 +280,88 @@ public function get_Item_category($id="0")
 					$this->db->where("gicl_id_pk", $id);
 					$this->db->delete("gen_item_category_lookup");
 				}
-				public function insert_Purchase($id,$ipd_Item_fk,$ipd_Manufacturer_fk,$ipd_HSN,$ipd_Batch,$ipd_Expiry,$ipd_Packing,$ipd_No_of_unit,$ipd_Total_Quantity,$ipd_Free,$ipd_Rate,$ipd_Total_item_value,$ipd_Cost_per_Quantity,$ipd_Packing_Mrp,$ipd_Mrp_per_Quantity,$ipd_Discount,$ipd_Discount_Type,$ipd_Total_Item_value,$ipd_Amount_Include_Gst,$ipd_Tax_fk,$ipd_Margin_Percentage,$ipd_Tax_on_free)
+	public function get_Rack($id="0")
+				{
+					$this->db->select("*");
+					$this->db->from("gen_rack_lookup");
+					$this->db->where("grl_active", 10);
+					if($id > 0)
+					{
+						$this->db->where("grl_id_pk", $id);
+					}
+					$query = $this->db->get();
+					return $query->result_array($query);
+				}
+				public function insert_Rack($id,$grl_name,$grl_shelf)
 				{
 					if($id > 0)
 					{
-						$data = array('ipd_Item_fk' => $ipd_Item_fk
-	,'ipd_Manufacturer_fk' => $ipd_Manufacturer_fk
-	,'ipd_HSN' => $ipd_HSN
-	,'ipd_Batch' => $ipd_Batch
-	,'ipd_Expiry' => $ipd_Expiry
-	,'ipd_Packing' => $ipd_Packing
-	,'ipd_No_of_unit' => $ipd_No_of_unit
-	,'ipd_Total_Quantity' => $ipd_Total_Quantity
-	,'ipd_Free' => $ipd_Free
-	,'ipd_Rate' => $ipd_Rate
-	,'ipd_Total_item_value' => $ipd_Total_item_value
-	,'ipd_Cost_per_Quantity' => $ipd_Cost_per_Quantity
-	,'ipd_Packing_Mrp' => $ipd_Packing_Mrp
-	,'ipd_Mrp_per_Quantity' => $ipd_Mrp_per_Quantity
-	,'ipd_Discount' => $ipd_Discount
-	,'ipd_Discount_Type' => $ipd_Discount_Type
-	,'ipd_Total_Item_value' => $ipd_Total_Item_value
-	,'ipd_Amount_Include_Gst' => $ipd_Amount_Include_Gst
-	,'ipd_Tax_fk' => $ipd_Tax_fk
-	,'ipd_Margin_Percentage' => $ipd_Margin_Percentage
-	,'ipd_Tax_on_free' => $ipd_Tax_on_free
-	,'ipd_active' => 10
-	,'ipd_added_by' => 0
-	,'ipd_added_on' => date('Y-m-d h:i:s')
+						$data = array('grl_name' => $grl_name
+	,'grl_shelf' => $grl_shelf
+	,'grl_active' => 10
+	,'grl_added_by' => 0
+	,'grl_added_on' => date('Y-m-d h:i:s')
 	);
-						$this->db->where("ipd_id_pk", $id);
-						$this->db->update("item_purchase_details", $data);
+						$this->db->where("grl_id_pk", $id);
+						$this->db->update("gen_rack_lookup", $data);
 					}
 					else
 					{
-					$data = array('ipd_Item_fk' => $ipd_Item_fk
-	,'ipd_Manufacturer_fk' => $ipd_Manufacturer_fk
-	,'ipd_HSN' => $ipd_HSN
-	,'ipd_Batch' => $ipd_Batch
-	,'ipd_Expiry' => $ipd_Expiry
-	,'ipd_Packing' => $ipd_Packing
-	,'ipd_No_of_unit' => $ipd_No_of_unit
-	,'ipd_Total_Quantity' => $ipd_Total_Quantity
-	,'ipd_Free' => $ipd_Free
-	,'ipd_Rate' => $ipd_Rate
-	,'ipd_Total_item_value' => $ipd_Total_item_value
-	,'ipd_Cost_per_Quantity' => $ipd_Cost_per_Quantity
-	,'ipd_Packing_Mrp' => $ipd_Packing_Mrp
-	,'ipd_Mrp_per_Quantity' => $ipd_Mrp_per_Quantity
-	,'ipd_Discount' => $ipd_Discount
-	,'ipd_Discount_Type' => $ipd_Discount_Type
-	,'ipd_Total_Item_value' => $ipd_Total_Item_value
-	,'ipd_Amount_Include_Gst' => $ipd_Amount_Include_Gst
-	,'ipd_Tax_fk' => $ipd_Tax_fk
-	,'ipd_Margin_Percentage' => $ipd_Margin_Percentage
-	,'ipd_Tax_on_free' => $ipd_Tax_on_free
-	,'ipd_active' => 10
-	,'ipd_added_by' => 0
-	,'ipd_added_on' => date('Y-m-d h:i:s')
+					$data = array('grl_name' => $grl_name
+	,'grl_shelf' => $grl_shelf
+	,'grl_active' => 10
+	,'grl_added_by' => 0
+	,'grl_added_on' => date('Y-m-d h:i:s')
 	);
-					$this->db->insert("item_purchase_details", $data);
+					$this->db->insert("gen_rack_lookup", $data);
 					}
 					//echo $this->db->last_query() ;
 				}
-				public function delete_Purchase($id)
+				public function delete_Rack($id)
 				{
-					$this->db->where("ipd_id_pk", $id);
-					$this->db->delete("item_purchase_details");
-				}		
+					$this->db->where("grl_id_pk", $id);
+					$this->db->delete("gen_rack_lookup");
+				}
+				public function get_Units($id="0")
+				{
+					$this->db->select("*");
+					$this->db->from("gen_units_lookup");
+					$this->db->where("gul_active", 10);
+					if($id > 0)
+					{
+						$this->db->where("gul_id_pk", $id);
+					}
+					$query = $this->db->get();
+					return $query->result_array($query);
+				}
+				public function insert_Units($id,$gul_name)
+				{
+					if($id > 0)
+					{
+						$data = array('gul_name' => $gul_name
+	,'gul_active' => 10
+	,'gul_added_by' => 0
+	,'gul_added_on' => date('Y-m-d h:i:s')
+	);
+						$this->db->where("gul_id_pk", $id);
+						$this->db->update("gen_units_lookup", $data);
+					}
+					else
+					{
+					$data = array('gul_name' => $gul_name
+	,'gul_active' => 10
+	,'gul_added_by' => 0
+	,'gul_added_on' => date('Y-m-d h:i:s')
+	);
+					$this->db->insert("gen_units_lookup", $data);
+					}
+					//echo $this->db->last_query() ;
+				}
+				public function delete_Units($id)
+				{
+					$this->db->where("gul_id_pk", $id);
+					$this->db->delete("gen_units_lookup");
+				}
 }
 
 /* End of file Affiliate_model.php */
