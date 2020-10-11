@@ -183,7 +183,7 @@ class Master_model extends CI_Model {
 	,'gsl_gstin' => $gsl_gstin
 	,'gsl_contact_number' => $gsl_contact_number
 	,'gsl_address' => $gsl_address
-	,'gsl_,active' => 10
+	,'gsl_active' => 10
 	,'gsl_added_by' => 0
 	,'gsl_added_on' => date('Y-m-d h:i:s')
 	);
@@ -196,7 +196,7 @@ class Master_model extends CI_Model {
 	,'gsl_gstin' => $gsl_gstin
 	,'gsl_contact_number' => $gsl_contact_number
 	,'gsl_address' => $gsl_address
-	,'gsl_,active' => 10
+	,'gsl_active' => 10
 	,'gsl_added_by' => 0
 	,'gsl_added_on' => date('Y-m-d h:i:s')
 	);
@@ -227,7 +227,7 @@ public function get_Manufacturer($id="0")
 					{
 						$data = array('gml_name' => $gml_name
 	,'gml_hsn' => $gml_hsn
-	,',gml_active' => 10
+	,'gml_active' => 10
 	,'gml_added_by' => 0
 	,'gml_added_on' => date('Y-m-d h:i:s')
 	);
@@ -238,7 +238,7 @@ public function get_Manufacturer($id="0")
 					{
 					$data = array('gml_name' => $gml_name
 	,'gml_hsn' => $gml_hsn
-	,',gml_active' => 10
+	,'gml_active' => 10
 	,'gml_added_by' => 0
 	,'gml_added_on' => date('Y-m-d h:i:s')
 	);
@@ -268,7 +268,7 @@ public function get_Item_category($id="0")
 					if($id > 0)
 					{
 						$data = array('gicl_name' => $gicl_name
-	,',gicl_active' => 10
+	,'gicl_active' => 10
 	,'gicl_added_by' => 0
 	,'gicl_added_on' => date('Y-m-d h:i:s')
 	);
@@ -278,7 +278,7 @@ public function get_Item_category($id="0")
 					else
 					{
 					$data = array('gicl_name' => $gicl_name
-	,',gicl_active' => 10
+	,'gicl_active' => 10
 	,'gicl_added_by' => 0
 	,'gicl_added_on' => date('Y-m-d h:i:s')
 	);

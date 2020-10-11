@@ -137,7 +137,7 @@ public function new_Suppliers($id=0)
 					$details["Suppliers"] = $this->master_model->get_Suppliers(0);
 					$this->load->view("ajax/Suppliers_body",$details);
 					}
-public function new_Manufacturer($id=0)
+				public function new_Manufacturer($id=0)
 					{
 					$details["id"] = $id;	
 					$details["Manufacturer"] = $this->master_model->get_Manufacturer($id);	
