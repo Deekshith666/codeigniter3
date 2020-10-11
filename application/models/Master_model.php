@@ -95,7 +95,11 @@ class Master_model extends CI_Model {
 					if($id > 0)
 					{
 						$this->db->where("gil_id_pk", $id);
-	public function get_Purchase($id="0")
+					}
+					$query = $this->db->get();
+					return $query->result_array($query);
+				}
+				public function get_Purchase($id=0)
 				{
 					$this->db->select("*");
 					$this->db->from("item_purchase_details");
