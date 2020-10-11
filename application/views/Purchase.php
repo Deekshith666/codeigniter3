@@ -1,3 +1,5 @@
+<link href="<?php echo $this->config->item('admin_js_path');?>chosen/chosen.min.css" rel="stylesheet">
+<script type="text/javascript" charset="utf-8" src="<?php echo $this->config->item('admin_js_path');?>chosen/chosen.jquery.min.js"></script>
 
 			<div class='row wrapper border-bottom white-bg page-heading' id=''>
 				<div class='col-lg-10'>
@@ -12,10 +14,20 @@
             <div class='row'>
                     <div class='col-md-3'>
                         <div class="input-group m-b">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-addon">Supplier</span>
-                                </div>
-                                <input type="text" value="" placeholder="Type here" class="Supplier_fk form-control">
+                                <select placeholder="Type here" class="chosen-select1 form-control">
+                                    <option value="0">Select Supplier</option>
+                                    <?php 
+                                    $Supplier_array = '';
+                                    if($Supplier)
+                                    {
+                                        foreach ($Supplier as $row) {
+                                            ?>
+                                        <option value="<?php echo $row['gsl_id_pk'];?>"><?php echo $row['gsl_name'];?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
+                                </select>
                                 <input type="hidden" name="Supplier_fk" id="Supplier_fk">
                         </div>
                     </div>
@@ -163,25 +175,11 @@
             </div>
         </div>
         <script>
-        <?php 
-        $Supplier_array = '';
-        if($Supplier)
-        {
-            foreach ($Supplier as $row) {
-                $Supplier_array = $Supplier_array.'{"name":"'.$row['gsl_name'].'","id":"'.$row['gsl_id_pk'].'"},';
-            }
-        }
-        ?>    
+           
+         
         $(document).ready(function(){
-            
-            $('.Supplier_fk').typeahead({
-                source: [<?php echo $Supplier_array;?>],
-                updater: function(selection){
-                    setInterval(function(){$('.Supplier_fk').val(selection.name); }, 100);
-                    $('#Supplier_fk').val(selection.id);
-                }
-            });
-            
+        $(".chosen-select1").chosen({no_results_text: "nothing found!"});
+
             $('.dataTables-example').DataTable({
                 pageLength: 10,
                 responsive: true,
