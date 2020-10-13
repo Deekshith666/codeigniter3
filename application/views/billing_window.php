@@ -46,6 +46,29 @@ body {background-color: white;}
 
 <div class="wrapper wrapper-content">
     <div class="form-group row">
+        <div class='col-md-4'>
+            <div class="input-group m-b">
+                    <div class="input-group-prepend">
+                        <span class="input-group-addon">Customer Name</span>
+                    </div>
+                    <input type="text" placeholder="Type the name here" class="form-control">
+            </div>
+        </div>
+        <div class='col-md-6'>
+            <div class="input-group m-b">
+                    <div class="input-group-prepend">
+                        <span class="input-group-addon">Mobile No.</span>
+                    </div>
+                    <input type="text" placeholder="Can click Go! to search customer with same mobile number" class="form-control">
+                    <span class="input-group-append"> <button type="button" class="btn btn-primary">Go!
+                                        </button> </span>
+            </div>
+        </div>
+        <div class='col-md-2'>
+            <!--Old purchases-->
+        </div>
+    </div>
+    <div class="form-group row">
         <div class="col-sm-12">
             <div class="row">
                 <div class="col-md-3" ><b>Item</b></div>
