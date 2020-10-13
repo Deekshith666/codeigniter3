@@ -27,8 +27,12 @@
                                     if($Items)
                                     {
                                         foreach ($Items as $row) {
+                                        	$sel ='';
+                                        	if ($row['gil_id_pk']==$ipd_Item_fk) {
+                                        		$sel = 'selected';
+                                        	}
                                             ?>
-                                        <option value="<?php echo $row['gil_id_pk'];?>" id="ipd_Item_fk"><?php echo $row['gil_name'];?></option>
+                                        <option value="<?php echo $row['gil_id_pk'];?>" id="ipd_Item_fk" <?php 	echo $sel; ?>><?php echo $row['gil_name'];?></option>
                                             <?php
                                         }
                                     }
@@ -47,8 +51,12 @@
                                     if($Manufacturer)
                                     {
                                         foreach ($Manufacturer as $row) {
+                                        	$sel='';
+                                        	if ($row['gml_id_pk'] == $ipd_Manufacturer_fk) {
+                                        		$sel = 'selected';
+                                        	}
                                             ?>
-                                        <option value="<?php echo $row['gml_id_pk'];?>" id="ipd_Manufacturer_fk"><?php echo $row['gml_name'];?></option>
+                                        <option value="<?php echo $row['gml_id_pk'];?>" id="ipd_Manufacturer_fk" <?php 	echo $sel; ?>><?php echo $row['gml_name'];?></option>
                                             <?php
                                         }
                                     }
@@ -98,8 +106,12 @@
                                     if($Tax_group)
                                     {
                                         foreach ($Tax_group as $row) {
+                                        	$sel='';
+                                        	if ($row['gtgl_id_pk'] == $ipd_Tax_fk) {
+                                        		$sel ='selected';
+                                        	}
                                             ?>
-                                        <option value="<?php echo $row['gtgl_id_pk'];?>" id="ipd_Tax_fk"><?php echo $row['gtgl_name'];?></option>
+                                        <option value="<?php echo $row['gtgl_id_pk'];?>" id="ipd_Tax_fk" <?php 	echo $sel; ?>><?php echo $row['gtgl_name'];?></option>
                                             <?php
                                         }
                                     }
