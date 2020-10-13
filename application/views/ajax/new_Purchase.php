@@ -1,61 +1,116 @@
+<link href="<?php echo $this->config->item('admin_js_path');?>chosen/chosen.min.css" rel="stylesheet">
+<script type="text/javascript" charset="utf-8" src="<?php echo $this->config->item('admin_js_path');?>chosen/chosen.jquery.min.js"></script>
 <div class='form-group'>
 				<?php
-				$ipd_id_pk='';$ipd_Item_fk='';$ipd_Manufacturer_fk='';$ipd_HSN='';$ipd_Batch='';$ipd_Expiry='';$ipd_Packing='';$ipd_No_of_unit='';$ipd_Total_Quantity='';$ipd_Free='';$ipd_Rate='';$ipd_Total_item_value='';$ipd_Cost_per_Quantity='';$ipd_Packing_Mrp='';$ipd_Mrp_per_Quantity='';$ipd_Discount='';$ipd_Discount_Type='';$ipd_Total_Item_value='';$ipd_Amount_Include_Gst='';$ipd_Tax_fk='';$ipd_Margin_Percentage='';$ipd_Tax_on_free=''; 
+				$ipd_id_pk='';$ipd_Item_fk='';$ipd_Manufacturer_fk='';$ipd_HSN='';$ipd_Batch='';$ipd_Expiry='';$ipd_Packing='';$ipd_No_of_unit='';$ipd_Total_Quantity='';$ipd_Free='';$ipd_Rate='';$ipd_Total_item_value='';$ipd_Cost_per_Quantity='';$ipd_Packing_Mrp='';$ipd_Mrp_per_Quantity='';$ipd_Discount='';$ipd_Discount_Type='';$ipd_Amount_Include_Gst='';$ipd_Tax_fk='';$ipd_Margin_Percentage='';$ipd_Tax_on_free=''; 
 				if($id > 0)
 				{
 					if($Purchase)
 					{
 						foreach($Purchase as $row)
 						{
-							$ipd_id_pk = $row['ipd_id_pk'];$ipd_Item_fk=$row['ipd_Item_fk'];$ipd_Manufacturer_fk=$row['ipd_Manufacturer_fk'];$ipd_HSN=$row['ipd_HSN'];$ipd_Batch=$row['ipd_Batch'];$ipd_Expiry=$row['ipd_Expiry'];$ipd_Packing=$row['ipd_Packing'];$ipd_No_of_unit=$row['ipd_No_of_unit'];$ipd_Total_Quantity=$row['ipd_Total_Quantity'];$ipd_Free=$row['ipd_Free'];$ipd_Rate=$row['ipd_Rate'];$ipd_Total_item_value=$row['ipd_Total_item_value'];$ipd_Cost_per_Quantity=$row['ipd_Cost_per_Quantity'];$ipd_Packing_Mrp=$row['ipd_Packing_Mrp'];$ipd_Mrp_per_Quantity=$row['ipd_Mrp_per_Quantity'];$ipd_Discount=$row['ipd_Discount'];$ipd_Discount_Type=$row['ipd_Discount_Type'];$ipd_Total_Item_value=$row['ipd_Total_Item_value'];$ipd_Amount_Include_Gst=$row['ipd_Amount_Include_Gst'];$ipd_Tax_fk=$row['ipd_Tax_fk'];$ipd_Margin_Percentage=$row['ipd_Margin_Percentage'];$ipd_Tax_on_free=$row['ipd_Tax_on_free'];
+							$ipd_id_pk = $row['ipd_id_pk'];$ipd_Item_fk=$row['ipd_Item_fk'];$ipd_Manufacturer_fk=$row['ipd_Manufacturer_fk'];$ipd_HSN=$row['ipd_HSN'];$ipd_Batch=$row['ipd_Batch'];$ipd_Expiry=$row['ipd_Expiry'];$ipd_Packing=$row['ipd_Packing'];$ipd_No_of_unit=$row['ipd_No_of_unit'];$ipd_Total_Quantity=$row['ipd_Total_Quantity'];$ipd_Free=$row['ipd_Free'];$ipd_Rate=$row['ipd_Rate'];$ipd_Total_item_value=$row['ipd_Total_item_value'];$ipd_Cost_per_Quantity=$row['ipd_Cost_per_Quantity'];$ipd_Packing_Mrp=$row['ipd_Packing_Mrp'];$ipd_Mrp_per_Quantity=$row['ipd_Mrp_per_Quantity'];$ipd_Discount=$row['ipd_Discount'];$ipd_Discount_Type=$row['ipd_Discount_Type'];$ipd_Amount_Include_Gst=$row['ipd_Amount_Include_Gst'];$ipd_Tax_fk=$row['ipd_Tax_fk'];$ipd_Margin_Percentage=$row['ipd_Margin_Percentage'];$ipd_Tax_on_free=$row['ipd_Tax_on_free'];
 						}
 					}
 				}	
 				?>
 				<input type='hidden' id='ipd_id_pk' name='ipd_id_pk' value='<?php echo $id;?>' />
 				
-						<label>Item</label>
-						<input  type='text' name='ipd_Item_fk' id='ipd_Item_fk' class='form-control' value='<?php echo $ipd_Item_fk;?>' palceholder='Item_fk'>
-						<label>Manufacturer</label>
-						<input  type='text' name='ipd_Manufacturer_fk' id='ipd_Manufacturer_fk' class='form-control' value='<?php echo $ipd_Manufacturer_fk;?>' palceholder='Manufacturer_fk'>
-						<label>HSN</label>
-						<input  type='text' name='ipd_HSN' id='ipd_HSN' class='form-control' value='<?php echo $ipd_HSN;?>' palceholder='HSN'>
-						<label>Batch</label>
-						<input  type='text' name='ipd_Batch' id='ipd_Batch' class='form-control' value='<?php echo $ipd_Batch;?>' palceholder='Batch'>
-						<label>Expiry</label>
-						<input  type='text' name='ipd_Expiry' id='ipd_Expiry' class='form-control' value='<?php echo $ipd_Expiry;?>' palceholder='Expiry'>
-						<label>Packing</label>
-						<input  onkeypress='return IsNumeric(event);'  type='text' name='ipd_Packing' id='ipd_Packing' class='form-control' value='<?php echo $ipd_Packing;?>' palceholder='Packing'>
-						<label>No_of_unit</label>
-						<input  onkeypress='return IsNumeric(event);'  type='text' name='ipd_No_of_unit' id='ipd_No_of_unit' class='form-control' value='<?php echo $ipd_No_of_unit;?>' palceholder='No_of_unit'>
-						<label>Total_Quantity</label>
-						<input  type='text' name='ipd_Total_Quantity' id='ipd_Total_Quantity' class='form-control' value='<?php echo $ipd_Total_Quantity;?>' palceholder='Total_Quantity'>
-						<label>Free</label>
-						<input  onkeypress='return IsNumeric(event);'  type='text' name='ipd_Free' id='ipd_Free' class='form-control' value='<?php echo $ipd_Free;?>' palceholder='Free'>
-						<label>Rate</label>
-						<input  type='text' name='ipd_Rate' id='ipd_Rate' class='form-control' value='<?php echo $ipd_Rate;?>' palceholder='Rate'>
-						<label>Total_item_value</label>
-						<input  type='text' name='ipd_Total_item_value' id='ipd_Total_item_value' class='form-control' value='<?php echo $ipd_Total_item_value;?>' palceholder='Total_item_value'>
-						<label>Cost_per_Quantity</label>
-						<input  type='text' name='ipd_Cost_per_Quantity' id='ipd_Cost_per_Quantity' class='form-control' value='<?php echo $ipd_Cost_per_Quantity;?>' palceholder='Cost_per_Quantity'>
-						<label>Packing_Mrp</label>
-						<input  type='text' name='ipd_Packing_Mrp' id='ipd_Packing_Mrp' class='form-control' value='<?php echo $ipd_Packing_Mrp;?>' palceholder='Packing_Mrp'>
-						<label>Mrp_per_Quantity</label>
-						<input  type='text' name='ipd_Mrp_per_Quantity' id='ipd_Mrp_per_Quantity' class='form-control' value='<?php echo $ipd_Mrp_per_Quantity;?>' palceholder='Mrp_per_Quantity'>
-						<label>Discount</label>
-						<input  onkeypress='return IsNumeric(event);'  type='text' name='ipd_Discount' id='ipd_Discount' class='form-control' value='<?php echo $ipd_Discount;?>' palceholder='Discount'>
-						<label>Discount_Type</label>
-						<input  onkeypress='return IsNumeric(event);'  type='text' name='ipd_Discount_Type' id='ipd_Discount_Type' class='form-control' value='<?php echo $ipd_Discount_Type;?>' palceholder='Discount_Type'>
-						<label>Total_Item_value</label>
-						<input  type='text' name='ipd_Total_Item_value' id='ipd_Total_Item_value' class='form-control' value='<?php echo $ipd_Total_Item_value;?>' palceholder='Total_Item_value'>
-						<label>Amount_Include_Gst</label>
-						<input  type='text' name='ipd_Amount_Include_Gst' id='ipd_Amount_Include_Gst' class='form-control' value='<?php echo $ipd_Amount_Include_Gst;?>' palceholder='Amount_Include_Gst'>
-						<label>Tax</label>
-						<input  type='text' name='ipd_Tax_fk' id='ipd_Tax_fk' class='form-control' value='<?php echo $ipd_Tax_fk;?>' palceholder='Tax_fk'>
-						<label>Margin_Percentage</label>
-						<input  type='text' name='ipd_Margin_Percentage' id='ipd_Margin_Percentage' class='form-control' value='<?php echo $ipd_Margin_Percentage;?>' palceholder='Margin_Percentage'>
-						<label>Tax_on_free</label>
-						<input  type='text' name='ipd_Tax_on_free' id='ipd_Tax_on_free' class='form-control' value='<?php echo $ipd_Tax_on_free;?>' palceholder='Tax_on_free'></div>
+						<div>
+							
+							<!-- <input type="hidden" name="ipd_Item_fk" id="ipd_Item_fk"> -->
+							<select placeholder="Type here" class="chosen-select2 form-control">
+								
+                                    <option value="0">Select Items</option>
+                                    <?php 
+                                    $Items_array = '';
+                                    if($Items)
+                                    {
+                                        foreach ($Items as $row) {
+                                            ?>
+                                        <option value="<?php echo $row['gil_id_pk'];?>" id="ipd_Item_fk"><?php echo $row['gil_name'];?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
+                            </select>
+
+						</div>
+						<label></label>
+					
+						<div>
+							 <!-- <input type="hidden" name="ipd_Manufacturer_fk" id="ipd_Manufacturer_fk"> -->
+							<select placeholder="Type here" class="chosen-select3 form-control">
+                                    <option value="0">Select Manufacturer</option>
+                                    <?php 
+                                    $Manufacturer_array = '';
+                                    if($Manufacturer)
+                                    {
+                                        foreach ($Manufacturer as $row) {
+                                            ?>
+                                        <option value="<?php echo $row['gml_id_pk'];?>" id="ipd_Manufacturer_fk"><?php echo $row['gml_name'];?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
+                              </select>
+						</div>
+						<label></label>
+					
+						<input  type='text' name='ipd_HSN' id='ipd_HSN' class='form-control' value='<?php echo $ipd_HSN;?>' placeholder='HSN'>
+						<label></label>
+						
+						<input  type='text' name='ipd_Batch' id='ipd_Batch' class='form-control' value='<?php echo $ipd_Batch;?>' placeholder='Batch'>
+						<label></label>
+						<input  type='text' name='ipd_Expiry' id='ipd_Expiry' class='form-control' value='<?php echo $ipd_Expiry;?>' placeholder='Expiry'>
+						<label></label>
+						<input  onkeypress='return IsNumeric(event);'  type='text' name='ipd_Packing' id='ipd_Packing' class='form-control' value='<?php echo $ipd_Packing;?>' placeholder='Packing'>
+						<label></label>
+						<input  onkeypress='return IsNumeric(event);'  type='text' name='ipd_No_of_unit' id='ipd_No_of_unit' class='form-control' value='<?php echo $ipd_No_of_unit;?>' placeholder='No of unit'>
+						<label></label>
+						<input  type='text' name='ipd_Total_Quantity' id='ipd_Total_Quantity' class='form-control' value='<?php echo $ipd_Total_Quantity;?>' placeholder='Total_Quantity'>
+						<label></label>
+						<input  onkeypress='return IsNumeric(event);'  type='text' name='ipd_Free' id='ipd_Free' class='form-control' value='<?php echo $ipd_Free;?>' placeholder='Free'>
+						<label></label>
+						<input  type='text' name='ipd_Rate' id='ipd_Rate' class='form-control' value='<?php echo $ipd_Rate;?>' placeholder='Rate'>
+						<label></label>
+						<input  type='text' name='ipd_Total_item_value' id='ipd_Total_item_value' class='form-control' value='<?php echo $ipd_Total_item_value;?>' placeholder='Total item value'>
+						<label></label>
+						<input  type='text' name='ipd_Cost_per_Quantity' id='ipd_Cost_per_Quantity' class='form-control' value='<?php echo $ipd_Cost_per_Quantity;?>' placeholder='Cost per Quantity'>
+						<label></label>
+						<input  type='text' name='ipd_Packing_Mrp' id='ipd_Packing_Mrp' class='form-control' value='<?php echo $ipd_Packing_Mrp;?>' placeholder='Packing Mrp'>
+						<label></label>
+						<input  type='text' name='ipd_Mrp_per_Quantity' id='ipd_Mrp_per_Quantity' class='form-control' value='<?php echo $ipd_Mrp_per_Quantity;?>' placeholder='Mrp per Quantity'>
+						<label></label>
+						<input  onkeypress='return IsNumeric(event);'  type='text' name='ipd_Discount' id='ipd_Discount' class='form-control' value='<?php echo $ipd_Discount;?>' placeholder='Discount'>
+						<label></label>
+						<input  onkeypress='return IsNumeric(event);'  type='text' name='ipd_Discount_Type' id='ipd_Discount_Type' class='form-control' value='<?php echo $ipd_Discount_Type;?>' placeholder='Discount Type'>
+						<label></label>
+						<input  type='text' name='ipd_Amount_Include_Gst' id='ipd_Amount_Include_Gst' class='form-control' value='<?php echo $ipd_Amount_Include_Gst;?>' placeholder='Amount Include GST'>
+						
+						<label></label>
+						<div>
+							<!-- <input type="hidden" name="ipd_Tax_fk" id="ipd_Tax_fk"> -->
+							<select placeholder="Type here" class="chosen-select3 form-control">
+                                    <option value="0">Select Tax</option>
+                                    <?php 
+                                    $Tax_array = '';
+                                    if($Tax_group)
+                                    {
+                                        foreach ($Tax_group as $row) {
+                                            ?>
+                                        <option value="<?php echo $row['gtgl_id_pk'];?>" id="ipd_Tax_fk"><?php echo $row['gtgl_name'];?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
+                            </select>
+						</div>
+						
+						<label></label>
+						<input  type='text' name='ipd_Margin_Percentage' id='ipd_Margin_Percentage' class='form-control' value='<?php echo $ipd_Margin_Percentage;?>' placeholder='Margin Percentage'>
+						<label></label>
+						<input  type='text' name='ipd_Tax_on_free' id='ipd_Tax_on_free' class='form-control' value='<?php echo $ipd_Tax_on_free;?>' placeholder='Tax on free'></div>
 			<div class='modal-footer'>
 			    <button type='button' class='btn btn-white' data-dismiss='modal'>Close</button>
 			    <button type='button' id ='addPurchase' onclick='save_Purchase()' class='btn btn-primary'>Save changes</button>
@@ -177,13 +232,6 @@
 								document.getElementById('ipd_Discount_Type').focus();
 								return false;
 							}
-						var ipd_Total_Item_value = document.getElementById('ipd_Total_Item_value').value;
-						if(ipd_Total_Item_value == '')
-							{
-								alert('Please enter Total_Item_value');
-								document.getElementById('ipd_Total_Item_value').focus();
-								return false;
-							}
 						var ipd_Amount_Include_Gst = document.getElementById('ipd_Amount_Include_Gst').value;
 						if(ipd_Amount_Include_Gst == '')
 							{
@@ -215,7 +263,7 @@
 				$.ajax({
 			    url    :'<?php echo site_url('Ajaxs/Masters_ajax/save_Purchase');?>',
 			    type  :'POST',
-			    data  :{ipd_id_pk : ipd_id_pk,ipd_Item_fk:ipd_Item_fk,ipd_Manufacturer_fk:ipd_Manufacturer_fk,ipd_HSN:ipd_HSN,ipd_Batch:ipd_Batch,ipd_Expiry:ipd_Expiry,ipd_Packing:ipd_Packing,ipd_No_of_unit:ipd_No_of_unit,ipd_Total_Quantity:ipd_Total_Quantity,ipd_Free:ipd_Free,ipd_Rate:ipd_Rate,ipd_Total_item_value:ipd_Total_item_value,ipd_Cost_per_Quantity:ipd_Cost_per_Quantity,ipd_Packing_Mrp:ipd_Packing_Mrp,ipd_Mrp_per_Quantity:ipd_Mrp_per_Quantity,ipd_Discount:ipd_Discount,ipd_Discount_Type:ipd_Discount_Type,ipd_Total_Item_value:ipd_Total_Item_value,ipd_Amount_Include_Gst:ipd_Amount_Include_Gst,ipd_Tax_fk:ipd_Tax_fk,ipd_Margin_Percentage:ipd_Margin_Percentage,ipd_Tax_on_free:ipd_Tax_on_free},
+			    data  :{ipd_id_pk : ipd_id_pk,ipd_Item_fk:ipd_Item_fk,ipd_Manufacturer_fk:ipd_Manufacturer_fk,ipd_HSN:ipd_HSN,ipd_Batch:ipd_Batch,ipd_Expiry:ipd_Expiry,ipd_Packing:ipd_Packing,ipd_No_of_unit:ipd_No_of_unit,ipd_Total_Quantity:ipd_Total_Quantity,ipd_Free:ipd_Free,ipd_Rate:ipd_Rate,ipd_Total_item_value:ipd_Total_item_value,ipd_Cost_per_Quantity:ipd_Cost_per_Quantity,ipd_Packing_Mrp:ipd_Packing_Mrp,ipd_Mrp_per_Quantity:ipd_Mrp_per_Quantity,ipd_Discount:ipd_Discount,ipd_Discount_Type:ipd_Discount_Type,ipd_Amount_Include_Gst:ipd_Amount_Include_Gst,ipd_Tax_fk:ipd_Tax_fk,ipd_Margin_Percentage:ipd_Margin_Percentage,ipd_Tax_on_free:ipd_Tax_on_free},
 			    success:function(data){
 					document.getElementById('addPurchase').style.display = 'none';
 					document.getElementById('msg').innerHTML = 'Purchase Saved';
@@ -226,5 +274,14 @@
 						}
 						});
 				}
+			</script>
+			<script>
+
+         	$(document).ready(function(){
+         	$(".chosen-select2").chosen({no_results_text: "nothing found!"});
+            $(".chosen-select3").chosen({no_results_text: "nothing found!"});
+            $(".chosen-select4").chosen({no_results_text: "nothing found!"});
+            });
+
 			</script>
 			

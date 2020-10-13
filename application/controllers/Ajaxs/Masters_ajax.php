@@ -103,7 +103,14 @@ class Masters_ajax extends CI_Controller {
 					{
 					$id=$_GET["id"];
 					$details["id"] = $id;
-					$details["Items"] = $this->master_model->get_Items($id);	
+					$details["Items"] = $this->master_model->get_Items($id);
+					$details["Manufacturer"] = $this->master_model->get_Manufacturer(0);
+					$details["Item_category"] = $this->master_model->get_Item_category(0);
+					$details["Units"] = $this->master_model->get_Units(0);
+					$details["Suppliers"] = $this->master_model->get_Suppliers(0);	
+					$details["Tax_Group"] = $this->master_model->get_Tax_Group(0);
+					$details["Bill_category"] = $this->master_model->get_Bill_category(0);
+					$details["Rack"] = $this->master_model->get_Rack(0);	
 					$this->load->view("ajax/new_Items",$details); 	
 					}
 					public function delete_Items()
@@ -205,7 +212,10 @@ public function new_Item_category($id=0)
 	public function new_Purchase($id=0)
 					{
 					$details["id"] = $id;	
-					$details["Purchase"] = $this->master_model->get_Purchase($id);	
+					$details["Purchase"] = $this->master_model->get_Purchase($id);
+					$details["Manufacturer"]= $this->master_model->get_Manufacturer(0);
+					$details["Tax_group"] 	= $this->master_model->get_Tax_group(0);
+					$details["Items"] 	= $this->master_model->get_Items(0);	
 					$this->load->view("ajax/new_Purchase",$details); 
 					}
 					public function save_Purchase()
@@ -227,12 +237,11 @@ public function new_Item_category($id=0)
 						$ipd_Mrp_per_Quantity = $_POST["ipd_Mrp_per_Quantity"];
 						$ipd_Discount = $_POST["ipd_Discount"];
 						$ipd_Discount_Type = $_POST["ipd_Discount_Type"];
-						$ipd_Total_Item_value = $_POST["ipd_Total_Item_value"];
 						$ipd_Amount_Include_Gst = $_POST["ipd_Amount_Include_Gst"];
 						$ipd_Tax_fk = $_POST["ipd_Tax_fk"];
 						$ipd_Margin_Percentage = $_POST["ipd_Margin_Percentage"];
 						$ipd_Tax_on_free = $_POST["ipd_Tax_on_free"];
-					$this->master_model->insert_Purchase($ipd_id_pk,$ipd_Item_fk,$ipd_Manufacturer_fk,$ipd_HSN,$ipd_Batch,$ipd_Expiry,$ipd_Packing,$ipd_No_of_unit,$ipd_Total_Quantity,$ipd_Free,$ipd_Rate,$ipd_Total_item_value,$ipd_Cost_per_Quantity,$ipd_Packing_Mrp,$ipd_Mrp_per_Quantity,$ipd_Discount,$ipd_Discount_Type,$ipd_Total_Item_value,$ipd_Amount_Include_Gst,$ipd_Tax_fk,$ipd_Margin_Percentage,$ipd_Tax_on_free);
+					$this->master_model->insert_Purchase($ipd_id_pk,$ipd_Item_fk,$ipd_Manufacturer_fk,$ipd_HSN,$ipd_Batch,$ipd_Expiry,$ipd_Packing,$ipd_No_of_unit,$ipd_Total_Quantity,$ipd_Free,$ipd_Rate,$ipd_Total_item_value,$ipd_Cost_per_Quantity,$ipd_Packing_Mrp,$ipd_Mrp_per_Quantity,$ipd_Discount,$ipd_Discount_Type,$ipd_Amount_Include_Gst,$ipd_Tax_fk,$ipd_Margin_Percentage,$ipd_Tax_on_free);
 					$details["Purchase"] = $this->master_model->get_Purchase(0);
 					$this->load->view("ajax/Purchase_body",$details);
 					}
@@ -240,7 +249,10 @@ public function new_Item_category($id=0)
 					{
 					$id=$_GET["id"];
 					$details["id"] = $id;
-					$details["Purchase"] = $this->master_model->get_Purchase($id);	
+					$details["Purchase"] = $this->master_model->get_Purchase($id);
+					$details["Manufacturer"]= $this->master_model->get_Manufacturer(0);
+					$details["Tax_group"] 	= $this->master_model->get_Tax_group(0);
+					$details["Items"] 	= $this->master_model->get_Items(0);	
 					$this->load->view("ajax/new_Purchase",$details); 	
 					}
 					public function delete_Purchase()

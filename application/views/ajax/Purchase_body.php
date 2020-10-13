@@ -21,7 +21,6 @@
 	                    	    <td><?php echo $row['ipd_Mrp_per_Quantity'];?></td>
 	                    	    <td><?php echo $row['ipd_Discount'];?></td>
 	                    	    <td><?php echo $row['ipd_Discount_Type'];?></td>
-	                    	    <td><?php echo $row['ipd_Total_Item_value'];?></td>
 	                    	    <td><?php echo $row['ipd_Amount_Include_Gst'];?></td>
 	                    	    <td><?php echo $row['ipd_Tax_fk'];?></td>
 	                    	    <td><?php echo $row['ipd_Margin_Percentage'];?></td>

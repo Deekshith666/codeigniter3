@@ -416,7 +416,7 @@ public function get_Tax($id="0")
 					$query = $this->db->get();
 					return $query->result_array($query);
 				}
-				public function insert_Purchase($id,$ipd_Item_fk,$ipd_Manufacturer_fk,$ipd_HSN,$ipd_Batch,$ipd_Expiry,$ipd_Packing,$ipd_No_of_unit,$ipd_Total_Quantity,$ipd_Free,$ipd_Rate,$ipd_Total_item_value,$ipd_Cost_per_Quantity,$ipd_Packing_Mrp,$ipd_Mrp_per_Quantity,$ipd_Discount,$ipd_Discount_Type,$ipd_Total_Item_value,$ipd_Amount_Include_Gst,$ipd_Tax_fk,$ipd_Margin_Percentage,$ipd_Tax_on_free)
+				public function insert_Purchase($id,$ipd_Item_fk,$ipd_Manufacturer_fk,$ipd_HSN,$ipd_Batch,$ipd_Expiry,$ipd_Packing,$ipd_No_of_unit,$ipd_Total_Quantity,$ipd_Free,$ipd_Rate,$ipd_Total_item_value,$ipd_Cost_per_Quantity,$ipd_Packing_Mrp,$ipd_Mrp_per_Quantity,$ipd_Discount,$ipd_Discount_Type,$ipd_Amount_Include_Gst,$ipd_Tax_fk,$ipd_Margin_Percentage,$ipd_Tax_on_free)
 				{
 					if($id > 0)
 					{
@@ -436,12 +436,11 @@ public function get_Tax($id="0")
 	,'ipd_Mrp_per_Quantity' => $ipd_Mrp_per_Quantity
 	,'ipd_Discount' => $ipd_Discount
 	,'ipd_Discount_Type' => $ipd_Discount_Type
-	,'ipd_Total_Item_value' => $ipd_Total_Item_value
 	,'ipd_Amount_Include_Gst' => $ipd_Amount_Include_Gst
 	,'ipd_Tax_fk' => $ipd_Tax_fk
 	,'ipd_Margin_Percentage' => $ipd_Margin_Percentage
 	,'ipd_Tax_on_free' => $ipd_Tax_on_free
-	,',ipd_active' => 10
+	,'ipd_active' => 10
 	,'ipd_added_by' => 0
 	,'ipd_added_on' => date('Y-m-d h:i:s')
 	);
@@ -466,12 +465,11 @@ public function get_Tax($id="0")
 	,'ipd_Mrp_per_Quantity' => $ipd_Mrp_per_Quantity
 	,'ipd_Discount' => $ipd_Discount
 	,'ipd_Discount_Type' => $ipd_Discount_Type
-	,'ipd_Total_Item_value' => $ipd_Total_Item_value
 	,'ipd_Amount_Include_Gst' => $ipd_Amount_Include_Gst
 	,'ipd_Tax_fk' => $ipd_Tax_fk
 	,'ipd_Margin_Percentage' => $ipd_Margin_Percentage
 	,'ipd_Tax_on_free' => $ipd_Tax_on_free
-	,',ipd_active' => 10
+	,'ipd_active' => 10
 	,'ipd_added_by' => 0
 	,'ipd_added_on' => date('Y-m-d h:i:s')
 	);

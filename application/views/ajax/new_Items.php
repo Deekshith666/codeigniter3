@@ -1,3 +1,5 @@
+<link href="<?php echo $this->config->item('admin_js_path');?>chosen/chosen.min.css" rel="stylesheet">
+<script type="text/javascript" charset="utf-8" src="<?php echo $this->config->item('admin_js_path');?>chosen/chosen.jquery.min.js"></script>
 <div class='form-group'>
 				<?php
 				$gil_id_pk='';$gil_name='';$gil_code='';$gil_item_category_FK='';$gil_reorder_quantity='';$gil_unit_FK='';$gil_manufacturer_FK='';$gil_supplier_FK='';$gil_tax_group_FK='';$gil_cess='';$gil_barcode='';$gil_price='';$gil_bill_category_FK='';$gil_rack_FK=''; 
@@ -14,38 +16,164 @@
 				?>
 				<input type='hidden' id='gil_id_pk' name='gil_id_pk' value='<?php echo $id;?>' />
 				
-						<label>Name</label>
-						<input  type='text' name='gil_name' id='gil_name' class='form-control' value='<?php echo $gil_name;?>' palceholder='Name'>
-						<label>Code</label>
-						<input  type='text' name='gil_code' id='gil_code' class='form-control' value='<?php echo $gil_code;?>' palceholder='Code'>
-						<label>Item Category</label>
-						<input  type='text' name='gil_item_category_FK' id='gil_item_category_FK' class='form-control' value='<?php echo $gil_item_category_FK;?>' palceholder='Item_category_FK'>
-						<label>Reorder Quantity</label>
-						<input  onkeypress='return IsNumeric(event);'  type='text' name='gil_reorder_quantity' id='gil_reorder_quantity' class='form-control' value='<?php echo $gil_reorder_quantity;?>' palceholder='Reorder_quantity'>
-						<label>Unit</label>
-						<input  type='text' name='gil_unit_FK' id='gil_unit_FK' class='form-control' value='<?php echo $gil_unit_FK;?>' palceholder='Unit_FK'>
-						<label>Manufacturer</label>
-						<input  type='text' name='gil_manufacturer_FK' id='gil_manufacturer_FK' class='form-control' value='<?php echo $gil_manufacturer_FK;?>' palceholder='Manufacturer_FK'>
-						<label>Supplier</label>
-						<input  type='text' name='gil_supplier_FK' id='gil_supplier_FK' class='form-control' value='<?php echo $gil_supplier_FK;?>' palceholder='Supplier_FK'>
-						<label>Tax group</label>
-						<input  type='text' name='gil_tax_group_FK' id='gil_tax_group_FK' class='form-control' value='<?php echo $gil_tax_group_FK;?>' palceholder='Tax_group_FK'>
-						<label>Cess</label>
-						<input  onkeypress='return IsNumeric(event);'  type='text' name='gil_cess' id='gil_cess' class='form-control' value='<?php echo $gil_cess;?>' palceholder='Cess'>
-						<label>Barcode</label>
-						<input  type='text' name='gil_barcode' id='gil_barcode' class='form-control' value='<?php echo $gil_barcode;?>' palceholder='Barcode'>
-						<label>Price</label>
+						<label></label>
+						<input  type='text' name='gil_name' id='gil_name' class='form-control' value='<?php echo $gil_name;?>' placeholder='Name'>
+						<label></label>
+						<input  type='text' name='gil_code' id='gil_code' class='form-control' value='<?php echo $gil_code;?>' placeholder='Code'>
+						<label></label>
+						<input  onkeypress='return IsNumeric(event);'  type='text' name='gil_reorder_quantity' id='gil_reorder_quantity' class='form-control' value='<?php echo $gil_reorder_quantity;?>' placeholder='Reorder Quantity'>
+						<label></label>
+						<!-- <input  type='text' name='gil_item_category_FK' id='gil_item_category_FK' class='form-control' value='<?php echo $gil_item_category_FK;?>' palceholder='Item_category_FK'>
+						-->
+						<div> 
+							
+							<!--<input type="hidden" name="ipd_Item_fk" id="ipd_Item_fk">-->
+							<select placeholder="Type here" class="chosen-select1 form-control">
+								
+                                    <option value="0">Item Category</option>
+                                    <?php 
+                                    $Item_category_array = '';
+                                    if($Item_category)
+                                    {
+                                        foreach ($Item_category as $row) {
+                                            ?>
+                                        <option value="<?php echo $row['gicl_id_pk'];?>" id='gil_item_category_FK'><?php echo $row['gicl_name'];?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
+                            </select>
+
+						</div>
+						<label></label>
+						<!-- <input  type='text' name='gil_unit_FK' id='gil_unit_FK' class='form-control' value='<?php echo $gil_unit_FK;?>' palceholder='Unit_FK'> -->
+						<div>
+						<select placeholder="Type here" class="chosen-select2 form-control">
+								
+                                    <option value="0">Unit</option>
+                                    <?php 
+                                    $Units_array = '';
+                                    if($Units)
+                                    {
+                                        foreach ($Units as $row) {
+                                            ?>
+                                        <option value="<?php echo $row['gul_id_pk'];?>" id='gil_unit_FK'><?php echo $row['gul_name'];?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
+                            </select>
+                        </div>
+						<label></label>
+						<!-- <input  type='text' name='gil_manufacturer_FK' id='gil_manufacturer_FK' class='form-control' value='<?php echo $gil_manufacturer_FK;?>' palceholder='Manufacturer_FK'> -->
+						<div>
+						<select placeholder="Type here" class="chosen-select3 form-control">
+								
+                                    <option value="0">Manufacturer</option>
+                                    <?php 
+                                    $Manufacturer_array = '';
+                                    if($Units)
+                                    {
+                                        foreach ($Manufacturer as $row) {
+                                            ?>
+                                        <option value="<?php echo $row['gml_id_pk'];?>" id='gil_manufacturer_FK'><?php echo $row['gml_name'];?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
+                            </select>
+                        </div>
+						<label></label>
+						<!-- <input  type='text' name='gil_supplier_FK' id='gil_supplier_FK' class='form-control' value='<?php echo $gil_supplier_FK;?>' palceholder='Supplier_FK'> -->
+						<div>
+						<select placeholder="Type here" class="chosen-select4 form-control">
+								
+                                    <option value="0">Supplier</option>
+                                    <?php 
+                                    $Suppliers_array = '';
+                                    if($Suppliers)
+                                    {
+                                        foreach ($Suppliers as $row) {
+                                            ?>
+                                        <option value="<?php echo $row['gsl_id_pk'];?>" id='gil_supplier_FK'><?php echo $row['gsl_name'];?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
+                            </select>
+                        </div>
+                        <label></label>
+						<!-- <input  type='text' name='gil_bill_category_FK' id='gil_bill_category_FK' class='form-control' value='<?php echo $gil_bill_category_FK;?>' palceholder='Bill_category_FK'> -->
+						<div>
+						<select placeholder="Type here" class="chosen-select6 form-control">
+								
+                                    <option value="0">Bill Category</option>
+                                    <?php 
+                                    $Bill_category_array = '';
+                                    if($Bill_category)
+                                    {
+                                        foreach ($Bill_category as $row) {
+                                            ?>
+                                        <option value="<?php echo $row['gbcl_id_pk'];?>" id='gil_bill_category_FK'><?php echo $row['gbcl_name'];?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
+                            </select>
+                         </div>
+                         <label></label>
+						<!-- <input  type='text' name='gil_rack_FK' id='gil_rack_FK' class='form-control' value='<?php echo $gil_rack_FK;?>' palceholder='Rack_FK'> -->
+						<div>
+						<select placeholder="Type here" class="chosen-select7 form-control">
+								
+                                    <option value="0">Rack</option>
+                                    <?php 
+                                    $Rack_array = '';
+                                    if($Rack)
+                                    {
+                                        foreach ($Rack as $row) {
+                                            ?>
+                                        <option value="<?php echo $row['grl_id_pk'];?>" id='gil_rack_FK'><?php echo $row['grl_name'];?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
+                            </select>
+                         </div>
+						<label></label>
+						<!-- <input  type='text' name='gil_tax_group_FK' id='gil_tax_group_FK' class='form-control' value='<?php echo $gil_tax_group_FK;?>' palceholder='Tax_group_FK'> -->
+						<div>
+						<select placeholder="Type here" class="chosen-select5 form-control">
+								
+                                    <option value="0">Tax group</option>
+                                    <?php 
+                                    $Tax_Group_array = '';
+                                    if($Tax_Group)
+                                    {
+                                        foreach ($Tax_Group as $row) {
+                                            ?>
+                                        <option value="<?php echo $row['gtgl_id_pk'];?>" id='gil_tax_group_FK'><?php echo $row['gtgl_name'];?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?> 
+                            </select>
+                         </div>
+						<label></label>
+						<input  onkeypress='return IsNumeric(event);'  type='text' name='gil_cess' id='gil_cess' class='form-control' value='<?php echo $gil_cess;?>' placeholder='Cess'>
+						<label></label>
+						<input  type='text' name='gil_barcode' id='gil_barcode' class='form-control' value='<?php echo $gil_barcode;?>' placeholder='Barcode'>
+						<label></label>
 						<div class="input-group m-b">
 	                    <div class="input-group-prepend">
 	                        <span class="input-group-addon">₹</span>
 	                    </div>
-	                    <input  type='text' name='gil_price' id='gil_price' class='form-control' value='<?php echo $gil_price;?>' palceholder='Price'>
+	                    <input  type='text' name='gil_price' id='gil_price' class='form-control' value='<?php echo $gil_price;?>' placeholder='Price'>
 	                	</div>
 						
-						<label>Bill Category</label>
-						<input  type='text' name='gil_bill_category_FK' id='gil_bill_category_FK' class='form-control' value='<?php echo $gil_bill_category_FK;?>' palceholder='Bill_category_FK'>
-						<label>Rack</label>
-						<input  type='text' name='gil_rack_FK' id='gil_rack_FK' class='form-control' value='<?php echo $gil_rack_FK;?>' palceholder='Rack_FK'></div>
+						
+						
+					</div>
 			<div class='modal-footer'>
 			    <button type='button' class='btn btn-white' data-dismiss='modal'>Close</button>
 			    <button type='button' id ='addItems' onclick='save_Items()' class='btn btn-primary'>Save changes</button>
@@ -160,5 +288,18 @@
 						}
 						});
 				}
+			</script>
+			<script>
+
+				 $(document).ready(function(){
+         		 $(".chosen-select1").chosen({no_results_text: "nothing found!"});
+         		 $(".chosen-select2").chosen({no_results_text: "nothing found!"});
+         		 $(".chosen-select3").chosen({no_results_text: "nothing found!"});
+         		 $(".chosen-select4").chosen({no_results_text: "nothing found!"});
+         		 $(".chosen-select5").chosen({no_results_text: "nothing found!"});
+         		 $(".chosen-select6").chosen({no_results_text: "nothing found!"});
+         		 $(".chosen-select7").chosen({no_results_text: "nothing found!"});
+                       
+        });
 			</script>
 			
