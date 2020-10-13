@@ -36,8 +36,13 @@
                                     if($Item_category)
                                     {
                                         foreach ($Item_category as $row) {
+                                        	$sel = '';
+                                        	if($row['gicl_id_pk'] == $gil_item_category_FK)
+                                        	{
+                                        		$sel = 'selected';
+                                        	}
                                             ?>
-                                        <option value="<?php echo $row['gicl_id_pk'];?>" id='gil_item_category_FK'><?php echo $row['gicl_name'];?></option>
+                                        <option value="<?php echo $row['gicl_id_pk'];?>" id='gil_item_category_FK'  <?php echo $sel;?>><?php echo $row['gicl_name'];?></option>
                                             <?php
                                         }
                                     }
@@ -56,8 +61,12 @@
                                     if($Units)
                                     {
                                         foreach ($Units as $row) {
+                                        	$sel='';
+                                        	if ($row['gul_id_pk']==	$gil_unit_FK) {
+                                        		$sel = 'selected';                                        	
+                                        	}
                                             ?>
-                                        <option value="<?php echo $row['gul_id_pk'];?>" id='gil_unit_FK'><?php echo $row['gul_name'];?></option>
+                                        <option value="<?php echo $row['gul_id_pk'];?>" id='gil_unit_FK' <?php 	echo $sel; ?>><?php echo $row['gul_name'];?></option>
                                             <?php
                                         }
                                     }
@@ -72,11 +81,15 @@
                                     <option value="0">Manufacturer</option>
                                     <?php 
                                     $Manufacturer_array = '';
-                                    if($Units)
+                                    if($Manufacturer)
                                     {
                                         foreach ($Manufacturer as $row) {
+                                        	$sel = '';
+                                        	if ($row['gml_id_pk'] == $gil_manufacturer_FK) {
+                                        		$sel = 'selected';
+                                        	}
                                             ?>
-                                        <option value="<?php echo $row['gml_id_pk'];?>" id='gil_manufacturer_FK'><?php echo $row['gml_name'];?></option>
+                                        <option value="<?php echo $row['gml_id_pk'];?>" id='gil_manufacturer_FK' <?php echo $sel; ?>><?php echo $row['gml_name'];?></option>
                                             <?php
                                         }
                                     }
@@ -94,8 +107,12 @@
                                     if($Suppliers)
                                     {
                                         foreach ($Suppliers as $row) {
+                                        	$sel = '';
+                                        	if ($row['gsl_id_pk']==$gil_supplier_FK) {
+                                        		$sel = 'selected';
+                                        	}
                                             ?>
-                                        <option value="<?php echo $row['gsl_id_pk'];?>" id='gil_supplier_FK'><?php echo $row['gsl_name'];?></option>
+                                        <option value="<?php echo $row['gsl_id_pk'];?>" id='gil_supplier_FK' <?php echo $sel; ?>><?php echo $row['gsl_name'];?></option>
                                             <?php
                                         }
                                     }
@@ -113,8 +130,12 @@
                                     if($Bill_category)
                                     {
                                         foreach ($Bill_category as $row) {
+                                        	$sel ='';
+                                        	if ($row['gbcl_id_pk']==$gil_bill_category_FK) {
+                                        		$sel ='selected';
+                                        	}
                                             ?>
-                                        <option value="<?php echo $row['gbcl_id_pk'];?>" id='gil_bill_category_FK'><?php echo $row['gbcl_name'];?></option>
+                                        <option value="<?php echo $row['gbcl_id_pk'];?>" id='gil_bill_category_FK' <?php echo $sel; ?>><?php echo $row['gbcl_name'];?></option>
                                             <?php
                                         }
                                     }
@@ -132,8 +153,12 @@
                                     if($Rack)
                                     {
                                         foreach ($Rack as $row) {
+                                        	$sel='';
+                                        	if ($row['grl_id_pk']==$gil_rack_FK) {
+                                        		$sel='selected';
+                                        	}
                                             ?>
-                                        <option value="<?php echo $row['grl_id_pk'];?>" id='gil_rack_FK'><?php echo $row['grl_name'];?></option>
+                                        <option value="<?php echo $row['grl_id_pk'];?>" id='gil_rack_FK' <?php echo $sel; ?>><?php echo $row['grl_name'];?></option>
                                             <?php
                                         }
                                     }
@@ -151,8 +176,12 @@
                                     if($Tax_Group)
                                     {
                                         foreach ($Tax_Group as $row) {
+                                        	$sel='';
+                                        	if ($row['gtgl_id_pk']==$gil_tax_group_FK) {
+                                        		$sel='selected';
+                                        	}
                                             ?>
-                                        <option value="<?php echo $row['gtgl_id_pk'];?>" id='gil_tax_group_FK'><?php echo $row['gtgl_name'];?></option>
+                                        <option value="<?php echo $row['gtgl_id_pk'];?>" id='gil_tax_group_FK' <?php echo $sel; ?>><?php echo $row['gtgl_name'];?></option>
                                             <?php
                                         }
                                     }
