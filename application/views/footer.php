@@ -1,12 +1,15 @@
-<?php 
-if($_SESSION['top'] > 200 || $_SESSION['top'] =='' || $_SESSION['top'] == NULL)
+<?php
+if($_SESSION['top'])
 {
-$_SESSION['top'] = 20;
-}
-else
-{
-$_SESSION['top'] = $_SESSION['top']+20;	
-}
+    if($_SESSION['top'] > 200 || $_SESSION['top'] =='' || $_SESSION['top'] == NULL)
+    {
+    $_SESSION['top'] = 20;
+    }
+    else
+    {
+    $_SESSION['top'] = $_SESSION['top']+20;	
+    }
+} 
 ?>
  <div class="footer fixed">
             <div class="float-right">
@@ -26,7 +29,9 @@ $_SESSION['top'] = $_SESSION['top']+20;
 $(document).on('keypress',function(e) {
     if(e.which == 61 || e.which == 43) {
 		i = Math.random();
-        window.open('<?php echo site_url('window').'?i=';?>'+i,'pagename'+i,'resizable,height=500,width=1200,top=<?php echo $_SESSION['top'];?>, left=<?php echo $_SESSION['top'];?>');
+        top = "<?php echo $_SESSION['top'];?>";
+        left = "<?php echo $_SESSION['top'];?>";
+window.open('<?php echo site_url('window').'?i=';?>'+i,'pagename'+i,'resizable,height=500,width=1200,top='+top+', left='+left);
     }
 });
 document.onkeydown = function(evt) {

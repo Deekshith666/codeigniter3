@@ -1,7 +1,11 @@
 <link href="<?php echo $this->config->item('admin_js_path');?>chosen/chosen.min.css" rel="stylesheet">
 <script type="text/javascript" charset="utf-8" src="<?php echo $this->config->item('admin_js_path');?>chosen/chosen.jquery.min.js"></script>
 
-			<div class='row wrapper border-bottom white-bg page-heading' id=''>
+<link href="<?php echo $this->config->item('admin_css_path');?>datepicker.css" rel="stylesheet">
+<script type="text/javascript" charset="utf-8" src="<?php echo $this->config->item('admin_js_path');?>bootstrap-datepicker.js"></script>
+
+<form id='Purchase_id' action="<?php echo site_url('ajaxs/save_purchase/index');?>" method="GET">
+			<div class='row wrapper border-bottom white-bg page-heading' >
 				<div class='col-lg-10'>
 					<h2>Purchase</h2>
 					<ol class='breadcrumb'>
@@ -14,7 +18,7 @@
             <div class='row'>
                     <div class='col-md-3'>
                         <div class="input-group m-b">
-                                <select placeholder="Type here" class="chosen-select1 form-control">
+                                <select placeholder="Type here" class="chosen-select1 form-control" id="Supplier_fk" name="Supplier_fk">
                                     <option value="0">Select Supplier</option>
                                     <?php 
                                     $Supplier_array = '';
@@ -28,7 +32,6 @@
                                     }
                                     ?> 
                                 </select>
-                                <input type="hidden" name="Supplier_fk" id="Supplier_fk">
                         </div>
                     </div>
                     <div class='col-md-3'>
@@ -36,15 +39,19 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-addon">Invoice No.</span>
                                 </div>
-                                <input type="text" placeholder="eg:1234" class="form-control">
+                                <input type="text" placeholder="eg:1234" class="form-control" id="Invoice_no" name="Invoice_no">
                         </div>
                     </div>
                     <div class='col-md-3'>
                         <div class="input-group m-b">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-addon">Invoice Date</span>
-                                </div>
-                                <input type="text" placeholder="Select" class="form-control">
+                                <div class="input-group-prepend date" id='datepicker'>
+                                    <span class="input-group-addon">Inv&nbspDate</span>
+                                    <input type='text' class="form-control" id="Invoice_date" name="Invoice_date" placeholder="dd/mm/yyyy" />
+                                    <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar">
+                                    </span>
+                                    </span>
+                                 </div>
                         </div>
                     </div>
                     <div class='col-md-3'>
@@ -53,9 +60,9 @@
                                     <span class="input-group-addon">Include Cess</span>
                                 </div>
                                 <div class="input-group-append">
-                                <select>
-                                    <option>No</option>
-                                    <option>Yes</option>
+                                <select id="Cess" name="Cess">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
                                 </select>
                             </div>
                         </div>
@@ -160,7 +167,7 @@
                     ?>  
                 </tbody>
                     <tfoot>
-                    <tr><th rowspan='1' colspan='1'>Item</th><th rowspan='1' colspan='1'>Manufacturer</th><th rowspan='1' colspan='1'>HSN</th><th rowspan='1' colspan='1'>Batch</th><th rowspan='1' colspan='1'>Expiry</th><th rowspan='1' colspan='1'>Packing</th><th rowspan='1' colspan='1'>No_of_unit</th><th rowspan='1' colspan='1'>Total_Quantity</th><th rowspan='1' colspan='1'>Free</th><th rowspan='1' colspan='1'>Rate</th><th rowspan='1' colspan='1'>Total_item_value</th><th rowspan='1' colspan='1'>Cost_per_Quantity</th><th rowspan='1' colspan='1'>Packing_Mrp</th><th rowspan='1' colspan='1'>Mrp_per_Quantity</th><th rowspan='1' colspan='1'>Discount</th><th rowspan='1' colspan='1'>Discount_Type</th><th rowspan='1' colspan='1'>Total_Item_value</th><th rowspan='1' colspan='1'>Amount_Include_Gst</th><th rowspan='1' colspan='1'>Tax</th><th rowspan='1' colspan='1'>Margin_Percentage</th><th rowspan='1' colspan='1'>Tax_on_free</th></tr>
+                    <tr><th rowspan='1' colspan='1'>Item</th><th rowspan='1' colspan='1'>Manufacturer</th><th rowspan='1' colspan='1'>HSN</th><th rowspan='1' colspan='1'>Batch</th><th rowspan='1' colspan='1'>Expiry</th><th rowspan='1' colspan='1'>Packing</th><th rowspan='1' colspan='1'>No_of_unit</th><th rowspan='1' colspan='1'>Total_Quantity</th><th rowspan='1' colspan='1'>Free</th><th rowspan='1' colspan='1'>Rate</th><th rowspan='1' colspan='1'>Total_item_value</th><th rowspan='1' colspan='1'>Cost_per_Quantity</th><th rowspan='1' colspan='1'>Packing_Mrp</th><th rowspan='1' colspan='1'>Mrp_per_Quantity</th><th rowspan='1' colspan='1'>Discount</th><th rowspan='1' colspan='1'>Discount_Type</th><th rowspan='1' colspan='1'>Total_Item_value</th><th rowspan='1' colspan='1'>Amount_Include_Gst</th><th rowspan='1' colspan='1'>Tax</th><th rowspan='1' colspan='1'>Margin_Percentage</th><th rowspan='1' colspan='1'>Tax_on_free</th><th rowspan='1' colspan='1'>Action</th></tr>
                     </tfoot>
                     </table>
 
@@ -168,11 +175,12 @@
                 </div>
                 <div class='ibox-title' align="right">
                         <div title='Click to add new category'>
-                            <a href='javascript:void(0)' onclick='save_Purchase()' class='btn btn-w-m btn-primary' data-toggle='modal'> Save</a>
+                            <a href='javascript:void(0)' onclick='save_purchase()' class='btn btn-w-m btn-primary' data-toggle='modal'> Save</a>
                         </div>
                     </div>
             </div>
-        </div>
+            </div>
+</form>            
         <script>
            
          
@@ -234,7 +242,44 @@
 			 	});
 		 	}
         }
+        function save_purchase()
+        {
+            var Invoice_no = document.getElementById('Invoice_no').value;
+            var Supplier_fk = document.getElementById('Supplier_fk').value;
+            var Invoice_date = document.getElementById('Invoice_date').value;
+            var Cess = document.getElementById('Cess').value;
+
+            if(Supplier_fk == '0')
+            {
+                alert("Please select supplier")
+                document.getElementById('Supplier_fk').focus();
+                return;   
+            }
+            if(Invoice_no == '')
+            {
+                alert("Please enter Invoice no.")
+                document.getElementById('Invoice_no').focus();
+                return;
+            }
+            if(Invoice_date == '')
+            {
+                alert("Please enter Invoice date.")
+                document.getElementById('Invoice_date').focus();
+                return;   
+            }   
+            document.getElementById('Purchase_id').submit(); 
+        }
         </script>
+        <script type="text/javascript">
+          $(function () {
+                  $("#datepicker").datepicker({
+                        autoclose: true, 
+                        todayHighlight: true,
+                        format: 'dd/mm/yyyy',
+                        endDate: '+1d',
+                  }).datepicker('update', new Date());
+                });
+       </script>
         <div class='modal inmodal' id='myModalPurchase' tabindex='-1' role='dialog'  aria-hidden='true'>
 		 	<div class='modal-dialog'>
 		 		<div class='modal-content animated fadeIn'>

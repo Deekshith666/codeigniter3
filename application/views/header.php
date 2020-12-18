@@ -64,7 +64,7 @@ $CI->load->model('Header_model');
 					<li>
 						<a href="<?php echo site_url($row['MT_URL']);?>" aria-expanded="false">
                             <i class="fa fa-th-large"></i> <span class="nav-label"><?php echo $row['MT_Name'];?></span> <span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level collapse" aria-expanded="false" style="height: 0px;">                   
+						<ul class="nav nav-second-level collapse" aria-expanded="false">                   
 							<?php foreach($submenu as $row1){?>
 							<li><a href="<?php echo $row1['MT_URL'];?>"><?php echo $row1['MT_Name'];?></a></li>
 							<?php } ?>

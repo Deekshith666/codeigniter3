@@ -482,6 +482,52 @@ public function get_Tax($id="0")
 					$this->db->where("ipd_id_pk", $id);
 					$this->db->delete("item_purchase_details");
 				}
+				public function get_Purchase_list($id="0")
+				{
+					$this->db->select("*");
+					$this->db->from("gen_purchase_list");
+					$this->db->where("gpl_active", 10);
+					if($id > 0)
+					{
+						$this->db->where("gpl_id_pk", $id);
+					}
+					$query = $this->db->get();
+					return $query->result_array($query);
+				}
+				public function insert_Purchase_list($id,$gpl_supplier_fk,$gpl_invoice_no,$gpl_invoice_date,$gpl_cess_flag)
+				{
+					if($id > 0)
+					{
+						$data = array('gpl_supplier_fk' => $gpl_supplier_fk
+									,'gpl_invoice_no' => $gpl_invoice_no
+									,'gpl_invoice_date' => $gpl_invoice_date
+									,'gpl_cess_flag' => $gpl_cess_flag
+									,'gpl_active' => 10
+									,'gpl_added_by' => 0
+									,'gpl_added_on' => date('Y-m-d h:i:s')
+									);
+						$this->db->where("gpl_id_pk", $id);
+						$this->db->update("gen_purchase_list", $data);
+					}
+					else
+					{
+					$data = array('gpl_supplier_fk' => $gpl_supplier_fk
+								,'gpl_invoice_no' => $gpl_invoice_no
+								,'gpl_invoice_date' => $gpl_invoice_date
+								,'gpl_cess_flag' => $gpl_cess_flag
+								,'gpl_active' => 10
+								,'gpl_added_by' => 0
+								,'gpl_added_on' => date('Y-m-d h:i:s')
+								);
+					$this->db->insert("gen_purchase_list", $data);
+					}
+					//echo $this->db->last_query() ;
+				}
+				public function delete_Purchase_list($id)
+				{
+					$this->db->where("gpl_id_pk", $id);
+					$this->db->delete("gen_purchase_list");
+				}
 }
 
 /* End of file Affiliate_model.php */
