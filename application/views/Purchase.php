@@ -136,8 +136,8 @@
                     	{
                     		?>
 	                    	<tr class='gradeA even' role='row'>
-                    	    	<td class='sorting_1'><?php echo $row['ipd_Item_fk'];?></td>
-	                    	    <td><?php echo $row['ipd_Manufacturer_fk'];?></td>
+                    	    	<td class='sorting_1'><?php echo $row['gil_name'];?></td>
+	                    	    <td><?php echo $row['gml_name'];?></td>
 	                    	    <td><?php echo $row['ipd_HSN'];?></td>
 	                    	    <td><?php echo $row['ipd_Batch'];?></td>
 	                    	    <td><?php echo $row['ipd_Expiry'];?></td>
@@ -153,7 +153,7 @@
 	                    	    <td><?php echo $row['ipd_Discount'];?></td>
 	                    	    <td><?php echo $row['ipd_Discount_Type'];?></td>
 	                    	    <td><?php echo $row['ipd_Amount_Include_Gst'];?></td>
-	                    	    <td><?php echo $row['ipd_Tax_fk'];?></td>
+	                    	    <td><?php echo $row['gtgl_name'];?></td>
 	                    	    <td><?php echo $row['ipd_Margin_Percentage'];?></td>
 	                    	    <td><?php echo $row['ipd_Tax_on_free'];?></td>
 	                    	    <td>
