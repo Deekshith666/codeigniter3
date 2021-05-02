@@ -9,6 +9,10 @@ if($_SESSION['top'])
     {
     $_SESSION['top'] = $_SESSION['top']+20;	
     }
+}
+else
+{
+    $_SESSION['top'] = 20;
 } 
 ?>
  <div class="footer fixed">
@@ -23,9 +27,11 @@ if($_SESSION['top'])
 </div>
 
 <script src="<?php echo $this->config->item('admin_js_path');?>bootstrap.js"></script>
-
+<script src="<?php echo $this->config->item('admin_js_path');?>jquery.metisMenu"></script>
+<script src="<?php echo $this->config->item('admin_js_path');?>jquery.slimscroll.min"></script>
 <!-- Custom and plugin javascript -->
-<script src="<?php echo $this->config->item('admin_js_path');?>inspinia.js"></script>    <script>
+<script src="<?php echo $this->config->item('admin_js_path');?>inspinia.js"></script>    
+<script>
 $(document).on('keypress',function(e) {
     if(e.which == 61 || e.which == 43) {
 		i = Math.random();
