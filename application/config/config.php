@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/git/codeigniter3';
+$config['base_url'] = 'http://localhost/billing';
 
 /*
 |--------------------------------------------------------------------------
@@ -523,16 +523,16 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 $config['DOCUMENT_ROOT'] = '/wamp/www/';
-$config['css_path'] = 'http://localhost/git/codeigniter3/static/css';
-$config['js_path'] = 'http://localhost/git/codeigniter3/static/js/';
-$config['img_path'] = 'http://localhost/git/codeigniter3/static/img/';
+$config['css_path'] = 'http://localhost/billing/static/css';
+$config['js_path'] = 'http://localhost/billing/static/js/';
+$config['img_path'] = 'http://localhost/billing/static/img/';
 
-$config['admin_css_path'] = 'http://localhost/git/codeigniter3/static/admin/css/';
-$config['admin_js_path'] = 'http://localhost/git/codeigniter3/static/admin/js/';
-$config['admin_img_path'] = 'http://localhost/git/codeigniter3/static/admin/img/';
-$config['admin_img_icon'] = 'http://localhost/git/codeigniter3/static/admin/icon/';
+$config['admin_css_path'] = 'http://localhost/billing/static/admin/css/';
+$config['admin_js_path'] = 'http://localhost/billing/static/admin/js/';
+$config['admin_img_path'] = 'http://localhost/billing/static/admin/img/';
+$config['admin_img_icon'] = 'http://localhost/billing/static/admin/icon/';
 
-$config['base_path'] = 'http://localhost/git/codeigniter3/';
+$config['base_path'] = 'http://localhost/billing/';
 
 
 
