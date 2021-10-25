@@ -27,8 +27,8 @@ else
 </div>
 
 <script src="<?php echo $this->config->item('admin_js_path');?>bootstrap.js"></script>
-<script src="<?php echo $this->config->item('admin_js_path');?>jquery.metisMenu"></script>
-<script src="<?php echo $this->config->item('admin_js_path');?>jquery.slimscroll.min"></script>
+<script src="<?php echo $this->config->item('admin_js_path');?>jquery.metisMenu.js"></script>
+<script src="<?php echo $this->config->item('admin_js_path');?>jquery.slimscroll.min.js"></script>
 <!-- Custom and plugin javascript -->
 <script src="<?php echo $this->config->item('admin_js_path');?>inspinia.js"></script>    
 <script>
