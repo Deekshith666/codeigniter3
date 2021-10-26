@@ -91,12 +91,21 @@ public function get_Items($id="0")
 {
 	$this->db->select("*");
 	$this->db->from("gen_item_lookup");
+	$this->db->join('gen_manufacturer_lookup', 'gml_id_pk = gil_manufacturer_FK', 'left');
+	$this->db->join('gen_item_category_lookup','gicl_id_pk = gil_item_category_FK','left');
+	$this->db->join('gen_units_lookup','gul_id_pk = gil_unit_FK','left');
+	$this->db->join('gen_supplier_lookup','gsl_id_pk = gil_supplier_FK','left');
+	$this->db->join('gen_tax_group_lookup','gtgl_id_pk = gil_tax_group_FK', 'left');
+	$this->db->join('gen_bill_category_lookup','gbcl_id_pk = gil_bill_category_FK', 'left');
+	$this->db->join('gen_rack_lookup','grl_id_pk = gil_rack_FK', 'left');
+
 	$this->db->where("gil_active", 10);
 	if($id > 0)
 	{
 		$this->db->where("gil_id_pk", $id);
 	}
 	$query = $this->db->get();
+	echo $this->db->last_query();
 	return $query->result_array($query);
 }
 public function insert_Items($id,$gil_name,$gil_code,$gil_item_category_FK,$gil_reorder_quantity,$gil_unit_FK,$gil_manufacturer_FK,$gil_supplier_FK,$gil_tax_group_FK,$gil_cess,$gil_barcode,$gil_price,$gil_bill_category_FK,$gil_rack_FK)
