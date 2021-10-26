@@ -45,8 +45,8 @@
                     <thead>
                     <tr role='row'>
                 	    	<th class='sorting_asc' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-sort='ascending' aria-label='Rendering engine: activate to sort column descending' style='width: 201px;'>Name</th>
-                    	    <th class='sorting' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-label='Browser: activate to sort column ascending' style='width: 250.6px;'>Gstin</th>
-                    	    <th class='sorting' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-label='Browser: activate to sort column ascending' style='width: 250.6px;'>Contact_number</th>
+                    	    <th class='sorting' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-label='Browser: activate to sort column ascending' style='width: 250.6px;'>Gst In</th>
+                    	    <th class='sorting' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-label='Browser: activate to sort column ascending' style='width: 250.6px;'>Contact Number</th>
                     	    <th class='sorting' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-label='Browser: activate to sort column ascending' style='width: 250.6px;'>Address</th>
                     	    <th class='sorting' tabindex='0' aria-controls='DataTables_Table_0' rowspan='1' colspan='1' aria-label='Browser: activate to sort column ascending' style='width: 250.6px;'>Action</th>
                     </tr>
@@ -74,7 +74,7 @@
                     ?>  
                 </tbody>
                     <tfoot>
-                    <tr><th rowspan='1' colspan='1'>Name</th><th rowspan='1' colspan='1'>Gstin</th><th rowspan='1' colspan='1'>Contact_number</th><th rowspan='1' colspan='1'>Address</th></tr>
+                    <tr><th rowspan='1' colspan='1'>Name</th><th rowspan='1' colspan='1'>Gst In</th><th rowspan='1' colspan='1'>Contact Number</th><th rowspan='1' colspan='1'>Address</th><th rowspan='1' colspan='1'>Action</th></tr>
                     </tfoot>
                     </table>
 
